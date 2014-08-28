@@ -1,0 +1,190 @@
+
+/* DEFINE THE HIGHLIGHt COLor even if i define it to chrome standard
+*/
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+#header {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background-color:#323232;
+    /*opacity: .90;*/
+    padding:20px;
+    -webkit-backface-visibility: hidden; /*fix weird flickering bug*/
+}
+
+#headerTwo {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    background-color: transparent;
+    /*opacity: .9;*/
+    padding:20px;
+}
+
+.titleSpacer{
+    width: 20%;
+    height: 40px;
+    display:inline-block;
+    float: left;
+    margin-right:0px;
+}
+
+#title{
+    float: left;
+    margin-left:-160px;
+    padding-left:0px;
+}
+
+img{
+    padding:0;
+    margin:0;
+}
+
+.titleS{
+    transition: transform .25s;
+    -webkit-transition: transform .25s;
+    -moz-transition: transform .25s;
+    -o-transition: transform .25s;
+}
+.titleI{
+    transition: transform .25s;
+    -webkit-transition: transform .25s;
+    -moz-transition: transform .25s;
+    -o-transition: transform .25s;
+}
+.titleD{
+    transition: transform .25s;
+    -webkit-transition: transform .25s;
+    -moz-transition: transform .25s;
+    -o-transition: transform .25s;
+}
+.titleNEYDURANT{
+    float: left;
+    margin-left: -61px;
+    padding-left:0px;
+    transition: transform .25s;
+    -webkit-transition: transform .25s;
+    -moz-transition: transform .25s;
+    -o-transition: transform .25s;
+}
+
+.logoS{
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+}
+.logoI{
+    transform: scaleX(2.5) scaleY(0.5) rotate(90deg) translateX(2px);
+    -webkit-transform: scaleX(2.5) scaleY(0.5) rotate(90deg) translateX(2px);
+    -ms-transform: scaleX(2.5) scaleY(0.5) rotate(90deg) translateX(2px);
+}
+.logoD{
+    transform: translateX(-11px);
+    -webkit-transform: translateX(-11px);
+    -ms-transform: translateX(-11px);
+}
+.logoNEYDURANT{
+    float: left;
+    margin-left: -61px;
+    padding-left:0px;
+    transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+}
+
+.content{
+    margin: 0px auto;
+    width: 70%;
+    min-width: 800; /* JANK change this tooooooo*/
+    padding: 0px 15% 0px 15%;
+}
+
+#home{
+    /*background-color: #ffffff;   /* SET THE SIZE TO BE 100% FOR ANY HEIGHT*/
+    height: calc(100vh - 80px); /* 80 is height of header */
+    transform: translateY(18%); /* center text vertically. Make this use actual values based on font size and transform*/
+}
+#projects{
+    background-color: #e7d8c6;
+    height: calc(100vh - 80px);
+}
+#skillset{
+    background-color: #ffffff;
+}
+#interests{
+    background-color: #efd4a7;
+}
+#contact{
+    background-color: #323232;
+    /*opacity: .90;*/
+    color: #ffffff;
+    margin-bottom: 0px 0px 0px 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+p{
+    text-indent: 40px;
+    font-family: "Open Sans";
+}
+
+.content > h1{
+    text-align:center;
+    font-family: "Open Sans light";
+    font-weight: lighter;
+    font-size: 95px; /* JANK JANK Change font size to being relative to body size*/
+}
+
+#sidebar {
+    width: 100px;
+    position: absolute;
+    top: calc(100% - 70px);
+    /*transform: translateY(-65px);*/
+    margin-left: 100px;
+    background-color: #222222;
+    -webkit-backface-visibility: hidden; /*fix weird bug*/
+}
+
+.button{
+    text-align: center;
+    font-family: Arial;
+    font-weight: lighter;
+    display:block;
+    font-size: 14px;
+    padding: 30px 10px 30px 10px;
+}
+
+#homeButton{
+    padding: 5px;
+}
+
+#homeButton h2{
+    font-size: 50px;
+    font-weight: lighter;
+    font-family: sans-serif;
+    transition: transform .25s;
+    -webkit-transition: transform .25s;
+    -ms-transition: transform .25s;
+    margin: 0px;
+}
+
+.flipped{
+    transform: scale(-1);
+}
+
+#scroller {
+    width: 100px;
+    background-color: #323232;
+    color: #ffffff;
+    /*opacity: .9;*/
+    padding: 0px;
+    -webkit-backface-visibility: hidden; /*fix weird bug*/
+}
+
