@@ -3,6 +3,9 @@ body{
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    overflow-x:hidden;
 }
 
 #header {
@@ -14,19 +17,21 @@ body{
     background-color:#323232;
     padding:2vh;
     margin: 0px;
-    -webkit-backface-visibility: hidden; /*fix weird flickering bug*/
+    -webkit-backface-visibility: hidden;
 }
 
 #title img{
     height: 5vh;
+    border:0;
 }
 #titleREST{
     height: 5vh;
+    border: 0;
 }
 
 #title{
     float: left;
-    padding-left:0px;
+    padding-left: 1vw;
 }
 
 img{
@@ -86,37 +91,32 @@ img{
 }
 
 .content{
-    margin: 0px auto;
-}
-
-.titleWrapper{
-    /*margin: 0px auto;*/
-    display: inline-block;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
 }
 
 #home{
     background-color: #ffffff;
-    height: 92vh;
-    transform: translateY(18%); /* center text vertically. Make this use actual values based on font size and transform*/
+    height: 91vh;
+    display: block;
 }
 #projects{
     background-color: #f2e8d6;
-    height: calc(100vh - 80px);
-    width: 100%;
-    margin: 0px auto;
+    padding: 10vh 20vw 10vh 20vw;
 }
 #skillset{
     background-color: #ffffff;
+    padding: 10vh 20vw 10vh 20vw;
 }
 #interests{
     background-color: #f2e8d6;
+    padding: 10vh 20vw 10vh 20vw;
 }
 #contact{
     background-color: #323232;
     color: #ffffff;
-    margin-bottom: 0px 0px 0px 0px;
-    padding: 0px;
-    width: 100%;
+    padding: 10vh 20vw 10vh 20vw;
 }
 
 p{
@@ -128,16 +128,16 @@ p{
     text-align:center;
     font-family: "Helvetica Neue Light", "Open Sans light", sans-serif;
     font-weight: lighter;
-    font-size: 10vh; /* JANK JANK Change font size to being relative to body size*/
+    font-size: 10vh;
+    padding-top: 17vh;
 }
 
-#sidebar {
+#navbar-wrapper {
     width: 100px;
     position: absolute;
-    top: calc(100% - 70px);
-    margin-left: 100px;
+    top: 92vh;
     background-color: #323232;
-    -webkit-backface-visibility: hidden; /*fix weird bug*/
+    -webkit-backface-visibility: hidden;
 }
 
 .button{
@@ -167,12 +167,12 @@ p{
     transform: scale(-1);
 }
 
-#scroller {
+#navbar {
     width: 100px;
     background-color: #323232;
     color: #ffffff;
     padding: 0px;
-    -webkit-backface-visibility: hidden; /*fix weird bug*/
+    -webkit-backface-visibility: hidden;
 }
 
 

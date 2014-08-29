@@ -10,26 +10,38 @@
         <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         
         <script type='text/javascript'>
+            
+            var vh= $(window).height();
+            var vw = $(window).width();
+            
             $(window).load(function(){
                 $(function() {
                     
                     var updateNavScroll = function() {
                         var b = $(window).scrollTop();
-                        var d = $("#scroller-anchor").offset({scroll:false}).top;
-                        var $scroller=$("#scroller");
+                        var d = $("#navbar-anchor").offset({scroll:false}).top;
+                        var $navbar=$("#navbar");
                         if (b>(d-100)) {
-                            $scroller.css({position:"fixed",top:"100px"});
+                            $navbar.css({position:"fixed",top:"11vh"});
                         } else if (b<=(d-100)) {
-                            $scroller.css({position:"absolute",top:"40%"});
+                            $navbar.css({position:"absolute",top:"40%"});
                         }
                     };
                     
                     var updateNavOffset = function(){
-                        var headerLeft = $(".titleS").offset().left-5;
-                        $("#sidebar").css({margin: " 0px 0px 0px "+headerLeft+"px"});
+                        var headerLeft = $(".titleS").offset().left;
+                        $("#navbar-wrapper").css({margin: " 0px 0px 0px "+headerLeft+"px"});
+
                     };
+
+                    var updateVHVW = function(){
+                        vh = $(window).height();
+                        vw = $(window).width();
+                    };
+
                     $(window).resize(updateNavOffset);
                     $(window).resize(updateNavScroll);
+                    $(window).resize(updateVHVW);
                     updateNavOffset();
                     
                     var updateHeader = function(){
@@ -73,7 +85,7 @@
                             $("#contactButton").css({backgroundColor:"#323232"});
                             $("#homeButton h2").toggleClass("flipped", false);
                         }
-                        if( $top >= $("#interests").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() != $(document).height() ){
+                        if( $top >= $("#interests").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 ){
                             $("#homeButton").css({backgroundColor:"#323232"});
                             $("#projectsButton").css({backgroundColor:"#323232"});
                             $("#skillsetButton").css({backgroundColor:"#323232"});
@@ -81,7 +93,7 @@
                             $("#contactButton").css({backgroundColor:"#323232"});
                             $("#homeButton h2").toggleClass("flipped", false);
                         }
-                        if( $(window).scrollTop() + $(window).height() == $(document).height() ){
+                        if( $(window).scrollTop() + $(window).height() > $(document).height()-2 ){
                             $("#homeButton").css({backgroundColor:"#323232"});
                             $("#projectsButton").css({backgroundColor:"#323232"});
                             $("#skillsetButton").css({backgroundColor:"#323232"});
@@ -92,6 +104,38 @@
                         
                     };
                     
+                    $(document).ready(function(){
+                        $("#projectsButton").click( function( ){
+                            $('html, body').animate({
+                            scrollTop: $("#projects").offset({scroll:false}).top-.1*vh,
+                        }, 250);
+                        });
+                    });
+                    
+                    $(document).ready(function(){
+                        $("#skillsetButton").click( function( ){
+                            $('html, body').animate({
+                            scrollTop: $("#skillset").offset({scroll:false}).top-.1*vh,
+                        }, 250);
+                        });
+                    });
+                    
+                    $(document).ready(function(){
+                        $("#interestsButton").click( function( ){
+                            $('html, body').animate({
+                            scrollTop: $("#interests").offset({scroll:false}).top-.1*vh,
+                        }, 250);
+                        });
+                    });
+                    
+                    $(document).ready(function(){
+                        $("#contactButton").click( function( ){
+                            $('html, body').animate({
+                            scrollTop: $("#contact").offset({scroll:false}).top-.1*vh,
+                        }, 250);
+                        });
+                    });
+                    
                     $(window).scroll(updateNavScroll); //updateScroll on scroll
                     updateNavScroll(); //go ahead and updateScroll immediately
                     
@@ -100,6 +144,7 @@
                     
                     $(window).scroll(updateButtons);
                     updateButtons();
+                    
                 });
             });
             
@@ -109,7 +154,7 @@
     <body>
         
         <div id="header">
-            <div id="titleWrapper">
+            <div id="title-wrapper">
                 <div id="title">
                     <img class="titleS" src="Logo S.png"/>
                     <img class="titleI" src="Logo I.png"/>
@@ -122,12 +167,12 @@
         
         <div id="home" class="content">
         
-        <h1>Developer. <br> Hacker. <br> Dreamer. <br> Coder.</h1>
+            <h1>Developer. <br> Hacker. <br> Dreamer. <br> Coder.</h1>
         
         </div>
         
         <div id="projects" class="content">
-            <p>Locavore meggings ugh squid, pug meh cardigan put a bird on it 8-bit Cosby sweater synth American Apparel artisan. Street art aesthetic sartorial, mixtape chambray ethnic pork belly hashtag sustainable Brooklyn dreamcatcher readymade crucifix Kickstarter. 3 wolf moon Pinterest meh, photo booth tattooed semiotics normcore 90's Cosby sweater biodiesel occupy yr kogi chillwave forage. Shoreditch plaid umami, wayfarers fingerstache bicycle rights artisan put a bird on it. Schlitz Shoreditch polaroid banjo actually twee. Mumblecore dreamcatcher seitan artisan, Shoreditch gluten-free church-key sriracha kale chips XOXO. Tofu tousled butcher quinoa Blue Bottle small batch.</p>
+            <p>Locavore meggings ugh squid, pug meh cardigan put a bird on it 8-bit Cosby sweater synth American Apparel artisan. Street art aesthetic sartorial, mixtape chambray ethnic pork belly hashtag sustainable Brooklyn dreamcatcher readymade crucifix Kickstarter. 3 wolf moon Pinterest meh, photo booth tattooed semiotics normcore 90's Cosby sweater biodiesel occupy yr kogi chillwave forage. Shoreditch plaid umami, wayfarers fingerstache bicycle rights artisan put a bird on it. Schlitz Shoreditch polaroid banjo actually twee. Mumblecore dreamcatcher seitan artisan, Shoreditch gluten-free church-key sriracha kale chips XOXO. Tofu tousled butcher quinoa Blue Bottle small batch. h polaroid banjo actually twee. Mumblecore dreamcatcher seitan artisan, Shoreditch gluten-free church-key sriracha kale chips XOXO. Tofu tousled butcher quinoa Blue Bottle small batch. h polaroid banjo actually twee. Mumblecore dreamcatcher seitan artisan, Shoreditch gluten-free church-key sriracha kale chips XOXO. Tofu tousled butcher quinoa Blue Bottle small batch. </p>
             
             <p>Mixtape typewriter literally, +1 Intelligentsia cardigan Wes Anderson. Bitters brunch gentrify, raw denim Pitchfork meh salvia swag scenester gastropub keffiyeh. PBR&B art party distillery, butcher bespoke occupy flannel. Carles authentic sriracha, fanny pack single-origin coffee shabby chic ennui YOLO. Put a bird on it asymmetrical fingerstache dreamcatcher flannel, semiotics bespoke pork belly fap synth. Freegan normcore master cleanse, deep v lo-fi butcher Cosby sweater cray PBR slow-carb crucifix Carles ethnic vinyl. 90's try-hard put a bird on it normcore Intelligentsia, synth VHS umami bespoke kale chips chillwave pop-up.</p>
             
@@ -154,9 +199,9 @@
         </div>
         
         
-        <div id="sidebar"> 
-            <div id="scroller-anchor"></div> 
-            <div id="scroller"> 
+        <div id="navbar-wrapper"> 
+            <div id="navbar-anchor"></div> 
+            <div id="navbar"> 
                 
                 <span class="button" id="homeButton"><h2>^</h2></span>
                 <span class="button" id="projectsButton">PROJECTS </span>
