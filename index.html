@@ -69,9 +69,9 @@
                     
                 };
 
-                $(window).resize(updateNavOffset);
+                $(window).resize(updateVHVW)
+;                $(window).resize(updateNavOffset);
                 $(window).resize(updateNavScroll);
-                $(window).resize(updateVHVW);
                 updateNavOffset();
 
                 $(window).scroll(updateNavScroll); //updateScroll on scroll
@@ -86,36 +86,36 @@
                 $("#homeButton").click( function() {
                     if( $("#homeButton h2").hasClass("flipped") ){
                         $('html, body').animate({
-                            scrollTop: $("#projects").offset({scroll:false}).top-.1*vh,
+                            scrollTop: $("#projects").offset({scroll:false}).top-.09*vh,
                         }, 250);
                     }else{
                         $('html, body').animate({
-                            scrollTop: $("#home").offset({scroll:false}).top-.1*vh,
+                            scrollTop: $("#home").offset({scroll:false}).top-.09*vh,
                         }, 250);
                     }
                 });
 
                 $("#projectsButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#projects").offset({scroll:false}).top-.1*vh,
+                        scrollTop: $("#projects").offset({scroll:false}).top-.09*vh,
                     }, 250);
                 });
 
                 $("#skillsetButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#skillset").offset({scroll:false}).top-.1*vh,
+                        scrollTop: $("#skillset").offset({scroll:false}).top-.09*vh,
                     }, 250);
                 });
 
                 $("#interestsButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#interests").offset({scroll:false}).top-.1*vh,
+                        scrollTop: $("#interests").offset({scroll:false}).top-.09*vh,
                     }, 250);
                 });
 
                 $("#contactButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#contact").offset({scroll:false}).top-.1*vh,
+                        scrollTop: $("#contact").offset({scroll:false}).top-.09*vh,
                     }, 250);
                 });
 
@@ -152,9 +152,25 @@
         </div>
         
         <div id="skillset" class="content">
-            <p>Salvia drinking vinegar kale chips PBR&B kogi Bushwick. Kogi cred 8-bit street art aesthetic selfies, ugh gastropub artisan keytar. Tousled trust fund bitters irony 3 wolf moon butcher vegan. VHS biodiesel blog photo booth slow-carb gastropub, fixie Wes Anderson retro forage Cosby sweater occupy. Pug Austin biodiesel literally, Neutra gastropub normcore pour-over bespoke lomo craft beer scenester slow-carb 8-bit. Occupy crucifix bespoke, Neutra blog tote bag post-ironic vinyl vegan put a bird on it pork belly gluten-free. Quinoa viral Odd Future, squid XOXO photo booth vinyl Truffaut Marfa bitters pug semiotics Kickstarter.</p>
-            
-            <p>Viral blog Intelligentsia cardigan Bushwick, scenester quinoa fingerstache photo booth hella direct trade freegan whatever pug paleo. 3 wolf moon squid twee fanny pack you probably haven't heard of them fingerstache, fap ennui Kickstarter sustainable jean shorts cred food truck. Single-origin coffee meggings Schlitz, sustainable squid cray art party Williamsburg literally American Apparel Banksy vegan +1 forage. Salvia crucifix PBR&B, keytar Austin pickled vinyl authentic. Craft beer typewriter pork belly, High Life Brooklyn pickled post-ironic single-origin coffee iPhone gentrify Cosby sweater +1 Marfa kale chips fixie. Yr Schlitz bespoke, mixtape meggings irony +1 kogi distillery sartorial cardigan Vice small batch biodiesel Pitchfork. Slow-carb salvia semiotics next level Intelligentsia.</p>
+            <h2> Skillset </h2>
+            <ul>
+                <li><span class="ability">Java</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Object Oriented Design</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Windows</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">C</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">JQuery</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Javascript</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">HTML</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">CSS</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Git</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">ARM Assembly</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Labview Systems</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Linux</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">C++</span><span class="ability-score"><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Python</span><span class="ability-score"><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Command line</span><span class="ability-score"><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="ability">Gradle</span><span class="ability-score"><img src="star.png"/></span></span></li>
+            </ul>
             
         </div>
         
@@ -177,10 +193,10 @@
             <div id="navbar"> 
                 
                 <span class="button" id="homeButton"><h2>^</h2></span>
-                <span class="button" id="projectsButton">PROJECTS </span>
-                <span class="button" id="skillsetButton">SKILLSET </span>
-                <span class="button" id="interestsButton">INTERESTS </span>
-                <span class="button" id="contactButton">CONTACT</span>
+                <span class="button" id="projectsButton">Projects </span>
+                <span class="button" id="skillsetButton">Skillset </span>
+                <span class="button" id="interestsButton">Interests </span>
+                <span class="button" id="contactButton">Contact</span>
                 
             </div>
         </div>

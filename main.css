@@ -6,6 +6,8 @@ body{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     overflow-x:hidden;
+    font-family: "Open Sans light", "Helvetica Neue Light", sans-serif;
+    font-size:16px;
 }
 
 #header {
@@ -85,27 +87,21 @@ img{
     -ms-transform: translateY(-15vh);
 }
 
-.content{
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
-}
-
 #home{
     background-color: #ffffff;
     height: 91vh;
     display: block;
 }
 #projects{
-    background-color: #f2e8d6;
+    background-color: #f8eeda;
     padding: 10vh 20vw 10vh 20vw;
 }
 #skillset{
     background-color: #ffffff;
-    padding: 10vh 20vw 10vh 20vw;
+    padding: 7vh 20vw 10vh 20vw;
 }
 #interests{
-    background-color: #f2e8d6;
+    background-color: #f8eeda;
     padding: 10vh 20vw 10vh 20vw;
 }
 #contact{
@@ -116,24 +112,73 @@ img{
 
 p{
     text-indent: 40px;
-    font-family: "Open Sans";
+    font-size: 16px;
+}
+
+.content{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
 }
 
 .content > h1{
     text-align:center;
-    font-family: "Helvetica Neue Light", "Open Sans light", sans-serif;
     font-weight: lighter;
     font-size: 10vh;
     padding-top: 17vh;
+}
+.content > h2{
+    text-align:center;
+    font-weight: lighter;
+    font-size: 6vh;
 }
 
 #navbar-wrapper {
     width: 100px;
     position: absolute;
-    top: 92vh;
+    top: 90vh;
     background-color: #323232;
     -webkit-backface-visibility: hidden;
     cursor:pointer;
+}
+
+li{
+    list-style-type:none;
+    padding-left:10px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+li:hover{
+    background-color:#f8eeda; /*f2e8d6 old*/
+    font-size: 18px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+}
+
+.ability-score{
+    float: right;
+    transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -moz-transition: padding .25s;
+    -o-transition: padding .25s;
+}
+
+.ability-score img{
+    height: 16px;
+    padding-top: 2px;
+    transition: height .25s;
+    -webkit-transition: height .25s;
+    -moz-transition: height .25s;
+    -o-transition: height .25s;
+}
+
+li:hover .ability-score{
+    padding-right:10px;
+}
+
+li:hover .ability-score img{
+    height: 17px;
+    padding-top: 1px;
 }
 
 .button{
@@ -141,7 +186,6 @@ p{
     font-family: Arial;
     font-weight: lighter;
     display:block;
-    font-size: 14px;
     padding: 20px 5px 20px 5px;
 }
 
