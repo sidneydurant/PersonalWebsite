@@ -10,6 +10,23 @@ body{
     font-size:16px;
 }
 
+a{
+    color: #ffffff;
+    text-decoration:none;
+    transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -moz-transition: padding .25s;
+    -o-transition: padding .25s;
+
+}
+
+.contactlistlink:hover a{
+    padding-right: 10px;
+}
+.contactlistlink{
+    cursor: pointer;
+}
+
 #header {
     z-index: 2;
     position:fixed;
@@ -92,22 +109,22 @@ img{
     height: 91vh;
     display: block;
 }
-#projects{
+#about{
     background-color: #f8eeda;
-    padding: 10vh 20vw 10vh 20vw;
+    padding: 7vh 20vw 13vh 20vw;
 }
 #skillset{
     background-color: #ffffff;
-    padding: 7vh 20vw 10vh 20vw;
+    padding: 7vh 20vw 13vh 20vw;
 }
-#interests{
+#projects{
     background-color: #f8eeda;
-    padding: 10vh 20vw 10vh 20vw;
+    padding: 7vh 20vw 13vh 20vw;
 }
 #contact{
     background-color: #323232;
     color: #ffffff;
-    padding: 10vh 20vw 10vh 20vw;
+    padding: 7vh 30vw 10vh 30vw;
 }
 
 p{
@@ -143,40 +160,33 @@ p{
 }
 
 li{
-    list-style-type:none;
     padding-left:10px;
+    padding-right:10px;
+    list-style-type: none
+}
+
+#skilllist li{
     padding-top: 2px;
     padding-bottom: 3px;
 }
-li:hover{
+#skilllist li:hover{
     background-color:#f8eeda; /*f2e8d6 old*/
     font-size: 18px;
     padding-top: 0px;
     padding-bottom: 1px;
 }
 
-.ability-score{
+li span:last-child {
     float: right;
-    transition: padding .25s;
-    -webkit-transition: padding .25s;
-    -moz-transition: padding .25s;
-    -o-transition: padding .25s;
 }
 
-.ability-score img{
+.skill-score img{
     height: 16px;
     padding-top: 2px;
-    transition: height .25s;
-    -webkit-transition: height .25s;
-    -moz-transition: height .25s;
-    -o-transition: height .25s;
 }
 
-li:hover .ability-score{
-    padding-right:10px;
-}
 
-li:hover .ability-score img{
+#skilllist li:hover .skill-score img{
     height: 17px;
     padding-top: 1px;
 }

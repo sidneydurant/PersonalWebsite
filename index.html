@@ -50,18 +50,18 @@
                     $(".button").css({backgroundColor:"#323232"});
                     $("#homeButton h2").toggleClass("flipped", false);
 
-                    if( $top >= 0 && $top < $("#projects").offset({scroll:false}).top ){
+                    if( $top >= 0 && $top < $("#about").offset({scroll:false}).top ){
                         $("#homeButton").css({backgroundColor:"#0560d8"});
                         $("#homeButton h2").toggleClass("flipped", true);
                     }
-                    if( $top >= $("#projects").offset({scroll:false}).top && $top < $("#skillset").offset({scroll:false}).top ){
-                        $("#projectsButton").css({backgroundColor:"#0560d8"});
+                    if( $top >= $("#about").offset({scroll:false}).top && $top < $("#skillset").offset({scroll:false}).top ){
+                        $("#aboutButton").css({backgroundColor:"#0560d8"});
                     }
-                    if( $top >= $("#skillset").offset({scroll:false}).top && $top < $("#interests").offset({scroll:false}).top ){
+                    if( $top >= $("#skillset").offset({scroll:false}).top && $top < $("#projects").offset({scroll:false}).top ){
                         $("#skillsetButton").css({backgroundColor:"#0560d8"});
                     }
-                    if( $top >= $("#interests").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 ){
-                        $("#interestsButton").css({backgroundColor:"#0560d8"});
+                    if( $top >= $("#projects").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 ){
+                        $("#projectsButton").css({backgroundColor:"#0560d8"});
                     }
                     if( $(window).scrollTop() + $(window).height() > $(document).height()-2 ){
                         $("#contactButton").css({backgroundColor:"#0560d8"});
@@ -86,7 +86,7 @@
                 $("#homeButton").click( function() {
                     if( $("#homeButton h2").hasClass("flipped") ){
                         $('html, body').animate({
-                            scrollTop: $("#projects").offset({scroll:false}).top-.09*vh,
+                            scrollTop: $("#about").offset({scroll:false}).top-.09*vh,
                         }, 250);
                     }else{
                         $('html, body').animate({
@@ -95,9 +95,9 @@
                     }
                 });
 
-                $("#projectsButton").click( function() {
+                $("#aboutButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#projects").offset({scroll:false}).top-.09*vh,
+                        scrollTop: $("#about").offset({scroll:false}).top-.09*vh,
                     }, 250);
                 });
 
@@ -107,9 +107,9 @@
                     }, 250);
                 });
 
-                $("#interestsButton").click( function() {
+                $("#projectsButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#interests").offset({scroll:false}).top-.09*vh,
+                        scrollTop: $("#projects").offset({scroll:false}).top-.09*vh,
                     }, 250);
                 });
 
@@ -144,37 +144,39 @@
         
         </div>
         
-        <div id="projects" class="content">
-            <p>Locavore meggings ugh squid, pug meh cardigan put a bird on it 8-bit Cosby sweater synth American Apparel artisan. Street art aesthetic sartorial, mixtape chambray ethnic pork belly hashtag sustainable Brooklyn dreamcatcher readymade crucifix Kickstarter. 3 wolf moon Pinterest meh, photo booth tattooed semiotics normcore 90's Cosby sweater biodiesel occupy yr kogi chillwave forage. Shoreditch plaid umami, wayfarers fingerstache bicycle rights artisan put a bird on it. Schlitz Shoreditch polaroid banjo actually twee. Mumblecore dreamcatcher seitan artisan, Shoreditch gluten-free church-key sriracha kale chips XOXO. Tofu tousled butcher quinoa Blue Bottle small batch. h polaroid banjo actually twee. Mumblecore dreamcatcher seitan artisan, Shoreditch gluten-free church-key sriracha kale chips XOXO. Tofu tousled butcher quinoa Blue Bottle small batch. h polaroid banjo actually twee. Mumblecore dreamcatcher seitan artisan, Shoreditch gluten-free church-key sriracha kale chips XOXO. Tofu tousled butcher quinoa Blue Bottle small batch. </p>
+        <div id="about" class="content">
+            <h2>About</h2>
             
-            <p>Mixtape typewriter literally, +1 Intelligentsia cardigan Wes Anderson. Bitters brunch gentrify, raw denim Pitchfork meh salvia swag scenester gastropub keffiyeh. PBR&B art party distillery, butcher bespoke occupy flannel. Carles authentic sriracha, fanny pack single-origin coffee shabby chic ennui YOLO. Put a bird on it asymmetrical fingerstache dreamcatcher flannel, semiotics bespoke pork belly fap synth. Freegan normcore master cleanse, deep v lo-fi butcher Cosby sweater cray PBR slow-carb crucifix Carles ethnic vinyl. 90's try-hard put a bird on it normcore Intelligentsia, synth VHS umami bespoke kale chips chillwave pop-up.</p>
+            <p>I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently searching for paid internships for Fall 2014 and Summer 2015. This is my portfolio website, I hope you enjoy it. </p>
             
         </div>
         
         <div id="skillset" class="content">
             <h2> Skillset </h2>
-            <ul>
-                <li><span class="ability">Java</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Object Oriented Design</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Windows</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">C</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">JQuery</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Javascript</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">HTML</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">CSS</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Git</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">ARM Assembly</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Labview Systems</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Linux</span><span class="ability-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">C++</span><span class="ability-score"><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Python</span><span class="ability-score"><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Command line</span><span class="ability-score"><img src="star.png"/><img src="star.png"/></span></li>
-                <li><span class="ability">Gradle</span><span class="ability-score"><img src="star.png"/></span></span></li>
+            <ul id="skilllist">
+                <li><span class="skill">Java</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Object oriented design</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Windows</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">C</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">JQuery</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Javascript</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">HTML</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">CSS</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Git</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">ARM assembly</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Labview systems</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Linux</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">C++</span><span class="skill-score"><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Python</span><span class="skill-score"><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Command line</span><span class="skill-score"><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Gradle</span><span class="skill-score"><img src="star.png"/></span></span></li>
             </ul>
             
         </div>
         
-        <div id="interests" class="content">
+        <div id="projects" class="content">
+
+            <h2>Projects</h2>
             <p>Bicycle rights stumptown Echo Park, readymade synth scenester American Apparel blog tote bag iPhone ugh retro art party selvage. Before they sold out food truck cardigan, Schlitz umami mustache sriracha pour-over trust fund Pitchfork. Chambray Godard single-origin coffee small batch Odd Future whatever. Kickstarter direct trade gastropub, quinoa sustainable craft beer food truck +1 shabby chic seitan Williamsburg. Shabby chic selfies occupy Portland squid. Squid trust fund street art artisan, selvage paleo try-hard Shoreditch swag. Normcore squid umami YOLO cornhole, Vice chillwave vinyl 90's flexitarian craft beer before they sold out bitters.</p>
             
             <p>Organic gastropub twee brunch retro Brooklyn direct trade, jean shorts pork belly Thundercats iPhone post-ironic slow-carb. You probably haven't heard of them High Life ennui actually Odd Future, disrupt freegan fixie McSweeney's Williamsburg bespoke. Semiotics freegan Portland squid disrupt fashion axe. 3 wolf moon semiotics hoodie tousled, synth roof party church-key Odd Future lomo slow-carb Truffaut raw denim small batch wolf. Shoreditch retro organic Williamsburg, mumblecore beard single-origin coffee before they sold out PBR&B meggings craft beer lomo gluten-free farm-to-table Helvetica. Yr next level cray, banjo Truffaut Brooklyn tousled sriracha pork belly organic American Apparel whatever crucifix freegan meggings. Single-origin coffee banjo blog, cornhole small batch Tonx wolf.</p>
@@ -182,10 +184,15 @@
         </div>
         
         <div id="contact" class="content">
-            
-            <p>Dreamcatcher street art twee, jean shorts cliche wayfarers readymade. Leggings post-ironic bespoke ethnic kale chips. Master cleanse bespoke YOLO Tonx, banjo pickled gluten-free Schlitz tote bag plaid narwhal put a bird on it. 90's +1 aesthetic ugh try-hard Thundercats, photo booth polaroid vegan High Life letterpress bespoke banh mi pug mustache. Wes Anderson Odd Future artisan, lomo DIY actually High Life tote bag distillery twee tofu McSweeney's. Neutra four loko master cleanse, umami food truck 8-bit Marfa readymade skateboard Truffaut. Synth typewriter meggings, chia 3 wolf moon keffiyeh bitters lo-fi pop-up food truck.</p>
-            
+            <h2>Contact</h2
+            <ul id="contactlist">
+                <li><span>Email:</span><span>Sidney.Durant@gmail.com</span></li>
+                <li><span>Phone:</span><span>931-636-5774</span></li>
+                <li class="contactlistlink"><span>Github:</span><span class="contactLink"><a href="github.com/sdurant12">sdurant12</a></span></li>
+                <li class="contactlistlink"><span>Twitter:</span><span class="contactLink"><a href="twitter.com/SidneyDurant">@SidneyDurant</a></li>
+            </ul>
         </div>
+            
         
         
         <div id="navbar-wrapper"> 
@@ -193,9 +200,9 @@
             <div id="navbar"> 
                 
                 <span class="button" id="homeButton"><h2>^</h2></span>
-                <span class="button" id="projectsButton">Projects </span>
+                <span class="button" id="aboutButton">About </span>
                 <span class="button" id="skillsetButton">Skillset </span>
-                <span class="button" id="interestsButton">Interests </span>
+                <span class="button" id="projectsButton">Projects </span>
                 <span class="button" id="contactButton">Contact</span>
                 
             </div>
