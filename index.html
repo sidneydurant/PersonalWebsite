@@ -13,138 +13,103 @@
             
             var vh= $(window).height();
             var vw = $(window).width();
-            
-            $(window).load(function(){
-                $(function() {
-                    
-                    var updateNavScroll = function() {
-                        var b = $(window).scrollTop();
-                        var d = $("#navbar-anchor").offset({scroll:false}).top;
-                        var $navbar=$("#navbar");
-                        if (b>(d-100)) {
-                            $navbar.css({position:"fixed",top:"11vh"});
-                        } else if (b<=(d-100)) {
-                            $navbar.css({position:"absolute",top:"40%"});
-                        }
-                    };
-                    
-                    var updateNavOffset = function(){
-                        var headerLeft = $(".titleS").offset().left;
-                        $("#navbar-wrapper").css({margin: " 0px 0px 0px "+headerLeft+"px"});
+        
+            $(function() {
+                
+                var updateNavScroll = function() {
+                    var b = $(window).scrollTop();
+                    var d = $("#navbar-anchor").offset({scroll:false}).top;
+                    var $navbar=$("#navbar");
+                    if (b>(d-100)) {
+                        $navbar.css({position:"fixed",top:"11vh"});
+                    } else if (b<=(d-100)) {
+                        $navbar.css({position:"absolute",top:"40%"});
+                    }
+                };
+                
+                var updateNavOffset = function(){
+                    var headerLeft = $(".titleS").offset().left;
+                    $("#navbar-wrapper").css({margin: " 0px 0px 0px "+headerLeft+"px"});
+                };
 
-                    };
+                var updateVHVW = function(){
+                    vh = $(window).height();
+                    vw = $(window).width();
+                };
+                
+                var updateHeader = function(){
+                    $(".titleI").toggleClass("logoI", $(window).scrollTop() > 0);
+                    $(".titleD").toggleClass("logoD", $(window).scrollTop() > 0);
+                    $(".titleNEYDURANT").toggleClass("logoNEYDURANT", $(window).scrollTop() > 0);
+                };
+                
+                var updateButtons = function(){
+                    var $top = $(window).scrollTop() + .5*$(window).height();
 
-                    var updateVHVW = function(){
-                        vh = $(window).height();
-                        vw = $(window).width();
-                    };
+                        $(".button").css({backgroundColor:"#323232"});
+                        $("#homeButton h2").toggleClass("flipped", false);
 
-                    $(window).resize(updateNavOffset);
-                    $(window).resize(updateNavScroll);
-                    $(window).resize(updateVHVW);
-                    updateNavOffset();
+                    if( $top >= 0 && $top < $("#projects").offset({scroll:false}).top ){
+                        $("#homeButton").css({backgroundColor:"#328edf"});
+                        $("#homeButton h2").toggleClass("flipped", true);
+                    }
+                    if( $top >= $("#projects").offset({scroll:false}).top && $top < $("#skillset").offset({scroll:false}).top ){
+                        $("#projectsButton").css({backgroundColor:"#328edf"});
+                    }
+                    if( $top >= $("#skillset").offset({scroll:false}).top && $top < $("#interests").offset({scroll:false}).top ){
+                        $("#skillsetButton").css({backgroundColor:"#328edf"});
+                    }
+                    if( $top >= $("#interests").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 ){
+                        $("#interestsButton").css({backgroundColor:"#328edf"});
+                    }
+                    if( $(window).scrollTop() + $(window).height() > $(document).height()-2 ){
+                        $("#contactButton").css({backgroundColor:"#328edf"});
+                    }
                     
-                    var updateHeader = function(){
-                        if( $(window).scrollTop() > 0 ){
-                            $(".titleS").toggleClass("logoS", true);
-                            $(".titleI").toggleClass("logoI", true);
-                            $(".titleD").toggleClass("logoD", true);
-                            $(".titleNEYDURANT").toggleClass("logoNEYDURANT", true);
-                        }
-                        if( $(window).scrollTop() === 0 ){
-                            $(".titleS").toggleClass("logoS", false);
-                            $(".titleI").toggleClass("logoI", false);
-                            $(".titleD").toggleClass("logoD", false);
-                            $(".titleNEYDURANT").toggleClass("logoNEYDURANT", false);
-                        }
-                    };
-                    
-                    var updateButtons = function(){
-                        var $top = $(window).scrollTop() + .5*$(window).height();
-                        if( $top >= 0 && $top < $("#projects").offset({scroll:false}).top ){
-                            $("#homeButton").css({backgroundColor:"#328edf"});
-                            $("#projectsButton").css({backgroundColor:"#323232"});
-                            $("#skillsetButton").css({backgroundColor:"#323232"});
-                            $("#interestsButton").css({backgroundColor:"#323232"});
-                            $("#contactButton").css({backgroundColor:"#323232"});
-                            $("#homeButton h2").toggleClass("flipped", true);
-                        }
-                        if( $top >= $("#projects").offset({scroll:false}).top && $top < $("#skillset").offset({scroll:false}).top ){
-                            $("#homeButton").css({backgroundColor:"#323232"});
-                            $("#projectsButton").css({backgroundColor:"#328edf"});
-                            $("#skillsetButton").css({backgroundColor:"#323232"});
-                            $("#interestsButton").css({backgroundColor:"#323232"});
-                            $("#contactButton").css({backgroundColor:"#323232"});
-                            $("#homeButton h2").toggleClass("flipped", false);
-                        }
-                        if( $top >= $("#skillset").offset({scroll:false}).top && $top < $("#interests").offset({scroll:false}).top ){
-                            $("#homeButton").css({backgroundColor:"#323232"});
-                            $("#projectsButton").css({backgroundColor:"#323232"});
-                            $("#skillsetButton").css({backgroundColor:"#328edf"});
-                            $("#interestsButton").css({backgroundColor:"#323232"});
-                            $("#contactButton").css({backgroundColor:"#323232"});
-                            $("#homeButton h2").toggleClass("flipped", false);
-                        }
-                        if( $top >= $("#interests").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 ){
-                            $("#homeButton").css({backgroundColor:"#323232"});
-                            $("#projectsButton").css({backgroundColor:"#323232"});
-                            $("#skillsetButton").css({backgroundColor:"#323232"});
-                            $("#interestsButton").css({backgroundColor:"#328edf"});
-                            $("#contactButton").css({backgroundColor:"#323232"});
-                            $("#homeButton h2").toggleClass("flipped", false);
-                        }
-                        if( $(window).scrollTop() + $(window).height() > $(document).height()-2 ){
-                            $("#homeButton").css({backgroundColor:"#323232"});
-                            $("#projectsButton").css({backgroundColor:"#323232"});
-                            $("#skillsetButton").css({backgroundColor:"#323232"});
-                            $("#interestsButton").css({backgroundColor:"#323232"});
-                            $("#contactButton").css({backgroundColor:"#328edf"});
-                            $("#homeButton h2").toggleClass("flipped", false);
-                        }
-                        
-                    };
-                    
-                    $(document).ready(function(){
-                        $("#projectsButton").click( function( ){
-                            $('html, body').animate({
-                            scrollTop: $("#projects").offset({scroll:false}).top-.1*vh,
-                        }, 250);
-                        });
-                    });
-                    
-                    $(document).ready(function(){
-                        $("#skillsetButton").click( function( ){
-                            $('html, body').animate({
-                            scrollTop: $("#skillset").offset({scroll:false}).top-.1*vh,
-                        }, 250);
-                        });
-                    });
-                    
-                    $(document).ready(function(){
-                        $("#interestsButton").click( function( ){
-                            $('html, body').animate({
-                            scrollTop: $("#interests").offset({scroll:false}).top-.1*vh,
-                        }, 250);
-                        });
-                    });
-                    
-                    $(document).ready(function(){
-                        $("#contactButton").click( function( ){
-                            $('html, body').animate({
-                            scrollTop: $("#contact").offset({scroll:false}).top-.1*vh,
-                        }, 250);
-                        });
-                    });
-                    
-                    $(window).scroll(updateNavScroll); //updateScroll on scroll
-                    updateNavScroll(); //go ahead and updateScroll immediately
-                    
-                    $(window).scroll(updateHeader); // update header logo/title
-                    updateHeader();
-                    
-                    $(window).scroll(updateButtons);
-                    updateButtons();
-                    
+                };
+
+                $(window).resize(updateNavOffset);
+                $(window).resize(updateNavScroll);
+                $(window).resize(updateVHVW);
+                updateNavOffset();
+
+                $(window).scroll(updateNavScroll); //updateScroll on scroll
+                updateNavScroll(); //go ahead and updateScroll immediately
+                
+                $(window).scroll(updateHeader); // update header logo/title
+                updateHeader();
+                
+                $(window).scroll(updateButtons);
+                updateButtons();
+                
+                $("#homeButton").click( function() {
+                    $('html, body').animate({
+                        scrollTop: $("#home").offset({scroll:false}).top-.1*vh,
+                    }, 250);
+                });
+
+                $("#projectsButton").click( function() {
+                    $('html, body').animate({
+                        scrollTop: $("#projects").offset({scroll:false}).top-.1*vh,
+                    }, 250);
+                });
+
+                $("#skillsetButton").click( function() {
+                    $('html, body').animate({
+                        scrollTop: $("#skillset").offset({scroll:false}).top-.1*vh,
+                    }, 250);
+                });
+
+                $("#interestsButton").click( function() {
+                    $('html, body').animate({
+                        scrollTop: $("#interests").offset({scroll:false}).top-.1*vh,
+                    }, 250);
+                });
+
+                $("#contactButton").click( function() {
+                    $('html, body').animate({
+                        scrollTop: $("#contact").offset({scroll:false}).top-.1*vh,
+                    }, 250);
                 });
             });
             

@@ -39,12 +39,6 @@ img{
     margin:0;
 }
 
-.titleS{
-    transition: transform .25s;
-    -webkit-transition: transform .25s;
-    -moz-transition: transform .25s;
-    -o-transition: transform .25s;
-}
 .titleI{
     transition: transform .25s;
     -webkit-transition: transform .25s;
@@ -66,11 +60,6 @@ img{
     -o-transition: transform .25s;
 }
 
-.logoS{
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-}
 .logoI{
     transform: scaleX(2.5) scaleY(0.5) rotate(90deg) translateX(2px);
     -webkit-transform: scaleX(2.5) scaleY(0.5) rotate(90deg) translateX(2px);
@@ -146,10 +135,10 @@ p{
     font-weight: lighter;
     display:block;
     font-size: 14px;
-    padding: 30px 10px 30px 10px;
+    padding: 20px 5px 20px 5px;
 }
 
-#homeButton{
+/*#homeButton{
     padding: 5px;
 }
 
@@ -161,7 +150,7 @@ p{
     -webkit-transition: transform .25s;
     -ms-transition: transform .25s;
     margin: 0px;
-}
+}*/
 
 .flipped{
     transform: scale(-1);
