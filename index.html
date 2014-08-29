@@ -28,8 +28,9 @@
                 };
                 
                 var updateNavOffset = function(){
-                    var headerLeft = $(".titleS").offset().left;
-                    $("#navbar-wrapper").css({margin: " 0px 0px 0px "+headerLeft+"px"});
+                    var logoCenter = ($(".titleS").offset().left + $(".titleD").offset().left+$(".titleD").width() )/2 -5;
+                    var navbarLeft = logoCenter - $("#navbar").width()/2 ;
+                    $("#navbar-wrapper").css({margin: " 0px 0px 0px "+navbarLeft+"px"});
                 };
 
                 var updateVHVW = function(){
@@ -46,24 +47,24 @@
                 var updateButtons = function(){
                     var $top = $(window).scrollTop() + .5*$(window).height();
 
-                        $(".button").css({backgroundColor:"#323232"});
-                        $("#homeButton h2").toggleClass("flipped", false);
+                    $(".button").css({backgroundColor:"#323232"});
+                    $("#homeButton h2").toggleClass("flipped", false);
 
                     if( $top >= 0 && $top < $("#projects").offset({scroll:false}).top ){
-                        $("#homeButton").css({backgroundColor:"#328edf"});
+                        $("#homeButton").css({backgroundColor:"#0560d8"});
                         $("#homeButton h2").toggleClass("flipped", true);
                     }
                     if( $top >= $("#projects").offset({scroll:false}).top && $top < $("#skillset").offset({scroll:false}).top ){
-                        $("#projectsButton").css({backgroundColor:"#328edf"});
+                        $("#projectsButton").css({backgroundColor:"#0560d8"});
                     }
                     if( $top >= $("#skillset").offset({scroll:false}).top && $top < $("#interests").offset({scroll:false}).top ){
-                        $("#skillsetButton").css({backgroundColor:"#328edf"});
+                        $("#skillsetButton").css({backgroundColor:"#0560d8"});
                     }
                     if( $top >= $("#interests").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 ){
-                        $("#interestsButton").css({backgroundColor:"#328edf"});
+                        $("#interestsButton").css({backgroundColor:"#0560d8"});
                     }
                     if( $(window).scrollTop() + $(window).height() > $(document).height()-2 ){
-                        $("#contactButton").css({backgroundColor:"#328edf"});
+                        $("#contactButton").css({backgroundColor:"#0560d8"});
                     }
                     
                 };
@@ -81,11 +82,17 @@
                 
                 $(window).scroll(updateButtons);
                 updateButtons();
-                
+
                 $("#homeButton").click( function() {
-                    $('html, body').animate({
-                        scrollTop: $("#home").offset({scroll:false}).top-.1*vh,
-                    }, 250);
+                    if( $("#homeButton h2").hasClass("flipped") ){
+                        $('html, body').animate({
+                            scrollTop: $("#projects").offset({scroll:false}).top-.1*vh,
+                        }, 250);
+                    }else{
+                        $('html, body').animate({
+                            scrollTop: $("#home").offset({scroll:false}).top-.1*vh,
+                        }, 250);
+                    }
                 });
 
                 $("#projectsButton").click( function() {
@@ -111,6 +118,7 @@
                         scrollTop: $("#contact").offset({scroll:false}).top-.1*vh,
                     }, 250);
                 });
+
             });
             
         </script>

@@ -34,6 +34,12 @@ body{
     padding-left: 1vw;
 }
 
+#title-wrapper{
+    margin-left: 5vw;
+    display:block;
+    position:relative;
+}
+
 img{
     padding:0;
     margin:0;
@@ -127,6 +133,7 @@ p{
     top: 92vh;
     background-color: #323232;
     -webkit-backface-visibility: hidden;
+    cursor:pointer;
 }
 
 .button{
@@ -138,19 +145,17 @@ p{
     padding: 20px 5px 20px 5px;
 }
 
-/*#homeButton{
-    padding: 5px;
+#homeButton{
+    border-bottom-width:2px;
+    border-bottom-style: solid;
+    border-bottom-color:#ffffff;
 }
 
 #homeButton h2{
-    font-size: 50px;
-    font-weight: lighter;
-    font-family: sans-serif;
     transition: transform .25s;
     -webkit-transition: transform .25s;
     -ms-transition: transform .25s;
-    margin: 0px;
-}*/
+}
 
 .flipped{
     transform: scale(-1);
