@@ -1,44 +1,31 @@
 
-/* DEFINE THE HIGHLIGHt COLor even if i define it to chrome standard
-*/
-
 body{
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 #header {
+    z-index: 2;
     position:fixed;
     top:0;
     left:0;
     right:0;
     background-color:#323232;
-    /*opacity: .90;*/
-    padding:20px;
+    padding:2vh;
+    margin: 0px;
     -webkit-backface-visibility: hidden; /*fix weird flickering bug*/
 }
 
-#headerTwo {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    background-color: transparent;
-    /*opacity: .9;*/
-    padding:20px;
+#title img{
+    height: 5vh;
 }
-
-.titleSpacer{
-    width: 20%;
-    height: 40px;
-    display:inline-block;
-    float: left;
-    margin-right:0px;
+#titleREST{
+    height: 5vh;
 }
 
 #title{
     float: left;
-    margin-left:-160px;
     padding-left:0px;
 }
 
@@ -66,8 +53,7 @@ img{
     -o-transition: transform .25s;
 }
 .titleNEYDURANT{
-    float: left;
-    margin-left: -61px;
+    float: left;Z
     padding-left:0px;
     transition: transform .25s;
     -webkit-transition: transform .25s;
@@ -90,40 +76,43 @@ img{
     -webkit-transform: translateX(-11px);
     -ms-transform: translateX(-11px);
 }
+
 .logoNEYDURANT{
     float: left;
-    margin-left: -61px;
     padding-left:0px;
-    transform: translateY(-100px);
-    -webkit-transform: translateY(-100px);
-    -ms-transform: translateY(-100px);
+    transform: translateY(-15vh);
+    -webkit-transform: translateY(-15vh);
+    -ms-transform: translateY(-15vh);
 }
 
 .content{
     margin: 0px auto;
-    width: 70%;
-    min-width: 800; /* JANK change this tooooooo*/
-    padding: 0px 15% 0px 15%;
+}
+
+.titleWrapper{
+    /*margin: 0px auto;*/
+    display: inline-block;
 }
 
 #home{
-    /*background-color: #ffffff;   /* SET THE SIZE TO BE 100% FOR ANY HEIGHT*/
-    height: calc(100vh - 80px); /* 80 is height of header */
+    background-color: #ffffff;
+    height: 92vh;
     transform: translateY(18%); /* center text vertically. Make this use actual values based on font size and transform*/
 }
 #projects{
-    background-color: #e7d8c6;
+    background-color: #f2e8d6;
     height: calc(100vh - 80px);
+    width: 100%;
+    margin: 0px auto;
 }
 #skillset{
     background-color: #ffffff;
 }
 #interests{
-    background-color: #efd4a7;
+    background-color: #f2e8d6;
 }
 #contact{
     background-color: #323232;
-    /*opacity: .90;*/
     color: #ffffff;
     margin-bottom: 0px 0px 0px 0px;
     padding: 0px;
@@ -137,18 +126,17 @@ p{
 
 .content > h1{
     text-align:center;
-    font-family: "Open Sans light";
+    font-family: "Helvetica Neue Light", "Open Sans light", sans-serif;
     font-weight: lighter;
-    font-size: 95px; /* JANK JANK Change font size to being relative to body size*/
+    font-size: 10vh; /* JANK JANK Change font size to being relative to body size*/
 }
 
 #sidebar {
     width: 100px;
     position: absolute;
     top: calc(100% - 70px);
-    /*transform: translateY(-65px);*/
     margin-left: 100px;
-    background-color: #222222;
+    background-color: #323232;
     -webkit-backface-visibility: hidden; /*fix weird bug*/
 }
 
@@ -183,8 +171,10 @@ p{
     width: 100px;
     background-color: #323232;
     color: #ffffff;
-    /*opacity: .9;*/
     padding: 0px;
     -webkit-backface-visibility: hidden; /*fix weird bug*/
 }
+
+
+
 
