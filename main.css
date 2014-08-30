@@ -26,6 +26,26 @@ img{
     border:0;
 }
 
+li{
+    padding-left:10px;
+    padding-right:10px;
+    list-style-type: none
+}
+
+
+p{
+    text-indent: 40px;
+    font-size: 16px;
+}
+
+.transparent{
+    opacity: 0;
+}
+
+.flipped{
+    transform: scale(-1);
+}
+
 #header {
     z-index: 2;
     position: fixed;
@@ -93,57 +113,6 @@ img{
     -ms-transform: translateY(-15vh);
 }
 
-#home{
-    background-color: #ffffff;
-    height: 91vh;
-    display: block;
-}
-#about{
-    background-color: #f8eeda;
-    padding: 10vh 20vw 13vh 20vw;
-}
-#skillset{
-    background-color: #ffffff;
-    padding: 10vh 20vw 13vh 20vw;
-}
-#projects{
-    background-color: #f8eeda;
-    padding: 10vh 20vw 13vh 20vw;
-}
-#projects h2{
-    margin-bottom: 0px;
-}
-
-#contact{
-    background-color: #323232;
-    color: #ffffff;
-    padding: 10vh 30vw 10vh 30vw;
-}
-
-p{
-    text-indent: 40px;
-    font-size: 16px;
-}
-
-.content{
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
-}
-
-.content > h1{
-    text-align:center;
-    font-weight: lighter;
-    font-size: 10vh;
-    padding-top: 17vh;
-}
-.content > h2{
-    text-align:center;
-    font-weight: lighter;
-    font-size: 6vh;
-    margin-top: 0px;
-}
-
 #navbar-wrapper {
     width: 100px;
     position: absolute;
@@ -153,79 +122,12 @@ p{
     cursor:pointer;
 }
 
-li{
-    padding-left:10px;
-    padding-right:10px;
-    list-style-type: none
-}
-
-#skilllist li{
-    padding-top: 2px;
-    padding-bottom: 3px;
-}
-#skilllist li:hover{
-    background-color:#f8eeda; /*f2e8d6 old*/
-    font-size: 18px;
-    padding-top: 0px;
-    padding-bottom: 1px;
-}
-
-li span:last-child {
-    float: right;
-}
-
-.skill-score img{
-    height: 16px;
-    padding-top: 2px;
-}
-
-
-#skilllist li:hover .skill-score img{
-    height: 17px;
-    padding-top: 1px;
-}
-
-.project{
-    background-color: #ffffff;
-    padding: 10vh 25vw 0px 25vw;
-}
-.project-info{
-    background-color: #f8eeda;
-    padding: 5vh 20vw 5vh 20vw;
-}
-.projecthome-image{
-    width: 50vw;
-    margin-bottom: 0px;
-    position:absolute;
-    transition: opacity .5s;
-    -webkit-transition: opacity .5s;
-    -moz-transition: opacity .5s;
-    -o-transition: opacity  .5s;
-}
-
-#samplifyresults-image{
-    width: 20vw;
-    padding-left: 15vw;
-    padding-right: 15vw;
-}
-#samplify-image{
-    width: 20vw;
-    padding-left: 15vw;
-    padding-right: 15vw;
-}
-
-.project-image{
-    width: 50vw;
-    margin-bottom: 0px;
-    position:absolute;
-}
-
-.transparent{
-    opacity: 0;
-}
-
-#selfieaware-info{
-    margin-top: 0px;
+#navbar {
+    width: 100px;
+    background-color: #323232;
+    color: #ffffff;
+    padding: 0px;
+    -webkit-backface-visibility: hidden;
 }
 
 .button{
@@ -248,18 +150,112 @@ li span:last-child {
     -ms-transition: transform .25s;
 }
 
-.flipped{
-    transform: scale(-1);
+.content{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
 }
 
-#navbar {
-    width: 100px;
+.content > h1{
+    text-align:center;
+    font-weight: lighter;
+    font-size: 10vh;
+    padding-top: 17vh;
+}
+.content > h2{
+    text-align:center;
+    font-weight: lighter;
+    font-size: 6vh;
+    margin-top: 0px;
+}
+
+#home{
+    background-color: #ffffff;
+    height: 91vh;
+    display: block;
+}
+#about{
+    background-color: #f8eeda;
+    padding: 10vh 20vw 13vh 20vw;
+}
+#skillset{
+    background-color: #ffffff;
+    padding: 10vh 20vw 13vh 20vw;
+}
+#projects{
+    background-color: #f8eeda;
+    padding: 10vh 20vw 13vh 20vw;
+}
+#projects h2{
+    margin-bottom: 0px;
+}
+#contact{
     background-color: #323232;
     color: #ffffff;
-    padding: 0px;
-    -webkit-backface-visibility: hidden;
+    padding: 10vh 30vw 10vh 30vw;
 }
 
+li span:last-child {
+    float: right;
+}
 
+#skilllist li{
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+#skilllist li:hover{
+    background-color:#f8eeda; /*f2e8d6 old*/
+    font-size: 18px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+}
 
+.skill-score img{
+    height: 16px;
+    padding-top: 2px;
+}
+
+#skilllist li:hover .skill-score img{
+    height: 17px;
+    padding-top: 1px;
+}
+
+.project{
+    background-color: #ffffff;
+    padding: 10vh 25vw 0px 25vw;
+}
+
+.project-info{
+    background-color: #f8eeda;
+    padding: 5vh 20vw 5vh 20vw;
+    margin: 0;
+}
+
+.project-image{
+    width: 50vw;
+    margin-bottom: 0;
+    position:absolute;
+}
+
+.projecthome-image{
+    width: 50vw;
+    margin-bottom: 0px;
+    position:absolute;
+    transition: opacity .5s;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -o-transition: opacity  .5s;
+}
+
+#samplifyresults-image{
+    width: 20vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+#samplify-image{
+    width: 20vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
 
