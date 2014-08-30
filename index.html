@@ -86,7 +86,7 @@
                 $(window).resize(updateVHVW);
 ;               $(window).resize(updateNavOffset);
                 $(window).resize(updateNavScroll);
-                updateNavOffset();
+                $(window).load(updateNavOffset);
 
                 $(window).scroll(updateNavScroll); //updateScroll on scroll
                 updateNavScroll(); //go ahead and updateScroll immediately
@@ -141,13 +141,11 @@
     <body>
         
         <div id="header">
-            <div id="title-wrapper">
-                <div id="title">
-                    <img class="titleS" src="Logo S.png"/>
-                    <img class="titleI" src="Logo I.png"/>
-                    <img class="titleD" src="Logo D.png"/>
-                </div>
-                <img id="titleREST" class="titleNEYDURANT" src="Logo NEY DURANT.png"/>
+            <div id="title">
+                <img class="titleS" src="Logo S.png"/>
+                <img class="titleI" src="Logo I.png"/>
+                <img class="titleD" src="Logo D.png"/>
+                <img class="titleNEYDURANT" src="Logo NEY DURANT.png"/>
             </div>
         </div>
         

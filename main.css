@@ -20,16 +20,15 @@ a{
 
 }
 
-.contactlistlink:hover a{
-    padding-right: 10px;
-}
-.contactlistlink{
-    cursor: pointer;
+img{
+    padding:0;
+    margin:0;
+    border:0;
 }
 
 #header {
     z-index: 2;
-    position:fixed;
+    position: fixed;
     top:0;
     left:0;
     right:0;
@@ -39,29 +38,23 @@ a{
     -webkit-backface-visibility: hidden;
 }
 
-#title img{
+#header img{
     height: 5vh;
-    border:0;
-}
-#titleREST{
-    height: 5vh;
-    border: 0;
+    margin:0;
+    padding: 0;
 }
 
 #title{
-    float: left;
-    padding-left: 1vw;
-}
-
-#title-wrapper{
-    margin-left: 5vw;
     display:block;
     position:relative;
+    margin: 0;
 }
 
-img{
-    padding:0;
-    margin:0;
+.contactlistlink:hover a{
+    padding-right: 10px;
+}
+.contactlistlink{
+    cursor: pointer;
 }
 
 .titleI{
@@ -77,8 +70,6 @@ img{
     -o-transition: transform .25s;
 }
 .titleNEYDURANT{
-    float: left;Z
-    padding-left:0px;
     transition: transform .25s;
     -webkit-transition: transform .25s;
     -moz-transition: transform .25s;
@@ -97,8 +88,6 @@ img{
 }
 
 .logoNEYDURANT{
-    float: left;
-    padding-left:0px;
     transform: translateY(-15vh);
     -webkit-transform: translateY(-15vh);
     -ms-transform: translateY(-15vh);
