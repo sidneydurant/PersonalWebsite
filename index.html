@@ -69,8 +69,22 @@
                     
                 };
 
-                $(window).resize(updateVHVW)
-;                $(window).resize(updateNavOffset);
+                var shiftProjectInfo = function(){
+                    var imgheight = $("#selfieaware-image").height()-1;
+                    $("#selfieaware-info").css({margin: imgheight+"px 0px 0px 0px " });
+                    imgheight = $("#queueup-image").height()-1;
+                    $("#queueup-info").css({margin: imgheight+"px 0px 0px 0px " });
+                    imgheight = $("#samplify-image").height()-1;
+                    $("#samplify-info").css({margin: imgheight+"px 0px 0px 0px " });
+                }
+
+
+                var intervalID = setInterval(function(){$(".projecthome-image").toggleClass("transparent");}, 3000);
+
+                $(window).resize(shiftProjectInfo);
+                $(window).load(shiftProjectInfo);
+                $(window).resize(updateVHVW);
+;               $(window).resize(updateNavOffset);
                 $(window).resize(updateNavScroll);
                 updateNavOffset();
 
@@ -163,6 +177,7 @@
                 <li><span class="skill">HTML</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
                 <li><span class="skill">CSS</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
                 <li><span class="skill">Git</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
+                <li><span class="skill">Android apps</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
                 <li><span class="skill">ARM assembly</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
                 <li><span class="skill">Labview systems</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
                 <li><span class="skill">Linux</span><span class="skill-score"><img src="star.png"/><img src="star.png"/><img src="star.png"/></span></li>
@@ -175,13 +190,40 @@
         </div>
         
         <div id="projects" class="content">
-
             <h2>Projects</h2>
-            <p>Bicycle rights stumptown Echo Park, readymade synth scenester American Apparel blog tote bag iPhone ugh retro art party selvage. Before they sold out food truck cardigan, Schlitz umami mustache sriracha pour-over trust fund Pitchfork. Chambray Godard single-origin coffee small batch Odd Future whatever. Kickstarter direct trade gastropub, quinoa sustainable craft beer food truck +1 shabby chic seitan Williamsburg. Shabby chic selfies occupy Portland squid. Squid trust fund street art artisan, selvage paleo try-hard Shoreditch swag. Normcore squid umami YOLO cornhole, Vice chillwave vinyl 90's flexitarian craft beer before they sold out bitters.</p>
-            
-            <p>Organic gastropub twee brunch retro Brooklyn direct trade, jean shorts pork belly Thundercats iPhone post-ironic slow-carb. You probably haven't heard of them High Life ennui actually Odd Future, disrupt freegan fixie McSweeney's Williamsburg bespoke. Semiotics freegan Portland squid disrupt fashion axe. 3 wolf moon semiotics hoodie tousled, synth roof party church-key Odd Future lomo slow-carb Truffaut raw denim small batch wolf. Shoreditch retro organic Williamsburg, mumblecore beard single-origin coffee before they sold out PBR&B meggings craft beer lomo gluten-free farm-to-table Helvetica. Yr next level cray, banjo Truffaut Brooklyn tousled sriracha pork belly organic American Apparel whatever crucifix freegan meggings. Single-origin coffee banjo blog, cornhole small batch Tonx wolf.</p>
-            
         </div>
+
+        <div class="project">
+            <img class="project-image" src="SelfieAwareResultsWithBrowser.jpeg"/>
+            <a href="http://selfieaware.com/" target="_blank">
+            <img id="selfieaware-image" class="projecthome-image" src="SelfieAwareHomeWithBrowser.jpeg"/>
+            </a>
+        </div>
+        <div id="selfieaware-info" class="project-info" class="content">
+            <p> SelfieAware is artificial intelligence put to good use. It was built at LAHacks by me and three friends. We implemented a facial recognition API, and used it to give people selfiness scores. To use SelfieAware, you have to login through Instagram, and then SelfieAware will automatically browse your recent Instagram pictures (no, not all 3,000 pictures we know you have) and give you a selfiness score based on the ratio of pictures of yourself vs pictures of nature/others/etc.</p>
+        </div>
+
+
+        <div class="project">
+            <img class="project-image" src="QueueupResultsWithBrowser.jpeg"/>
+            <a href="http://queueup.herokuapp.com/" target="_blank">
+            <img id="queueup-image" class="projecthome-image" src="QueueupHomeWithBrowser.jpeg"/>
+            </a>
+        </div>
+        <div id="queueup-info" class="project-info">
+            <p> Queueup [q-up] is a party playlist maker. Built at MHacks Spring 2014 in 36 hours by me and two friends, Queueup lets you add songs to a central Spotify playlist. If you throw a party, all you have to do is setup a new playlist in the Spotify client app, and set up a playlist code. Partygoers can then simply enter the playlist code on the website to add music and upvote it. Go to the website and type in the code "MHACKS" to see the playlist we made at MHacks.</p>
+        </div>
+
+        <div class="project">
+            <img id="samplifyresults-image" class="project-image" src="SamplifyResultsWithPhone.jpeg"/>
+            <a href="http://samplifymobile.com" target="_blank">
+            <img id="samplify-image" class="projecthome-image" src="SamplifyHomeWithPhone.jpeg"/>
+            </a>
+        </div>
+        <div id="samplify-info" class="project-info">
+            <p> Samplify was an app built in Spring 2014. It used the Gracenote API to recognize a song over the microphone, and then scraped data from whosampled.com and use that data to identify what songs were sampled to make the one being listened to. We posted on reddit in the r/music subreddit, and ended up on front page. Samplify quickly reached the top 25 music-apps list in the Play Store before we were forced to take it down by whosampled. </p>
+        </div>
+
         
         <div id="contact" class="content">
             <h2>Contact</h2
