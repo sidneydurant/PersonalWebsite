@@ -2,6 +2,7 @@
 <html>
     
     <head>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Sidney Durant</title>
@@ -17,21 +18,23 @@
             $(function() {
                 
                 var updateNavScroll = function() {
-                    var b = $(window).scrollTop();
-                    var d = $("#navbar-anchor").offset({scroll:false}).top;
+                    
                     var $navbar=$("#navbar");
-                    if (b>(d-100)) {
-                        $navbar.css({position:"fixed",top:"11vh"});
-                    } else if (b<=(d-100)) {
-                        $navbar.css({position:"absolute",top:"40%"});
+                    var windowTop = $(document).scrollTop();
+                    var navbarTop = $navbar.offset({scroll:false}).top;
+                    console.log( windowTop + " " + navbarTop );
+                    if ( windowTop>navbarTop) {
+                        $navbar.css({position:"fixed",top:"0px"});
+                    } else {
+                        //$navbar.css({position:"absolute",top:navbarTop});
                     }
                 };
                 
-                var updateNavOffset = function(){
-                    var logoCenter = ($(".titleS").offset().left + $(".titleD").offset().left+$(".titleD").width() )/2 -5;
-                    var navbarLeft = logoCenter - $("#navbar").width()/2 ;
-                    $("#navbar-wrapper").css({margin: " 0px 0px 0px "+navbarLeft+"px"});
-                };
+                //var updateNavOffset = function(){
+                    //var logoLeft = $(".titleS").offset().left;
+                    //var navbarLeft = $(window).width() - logoLeft - $("#navbar").width();
+                    //$("#navbar").css({margin: " 0px 0px 0px "+navbarLeft+"px"});
+                //};
 
                 var updateVHVW = function(){
                     vh = $(window).height();
@@ -39,9 +42,12 @@
                 };
                 
                 var updateHeader = function(){
-                    $(".titleI").toggleClass("logoI", $(window).scrollTop() > 0);
-                    $(".titleD").toggleClass("logoD", $(window).scrollTop() > 0);
-                    $(".titleNEYDURANT").toggleClass("logoNEYDURANT", $(window).scrollTop() > 0);
+                    /*headerBottom = $("#header").offset({scroll:false}).top + $("#header").outerHeight(true);
+                    navbarTop = $("#navbar").offset({scroll:false}).top;*/
+                    headerTop = $("#header").offset({scroll:false}).top;
+                    $(".titleI").toggleClass("logoI", headerTop > 0);
+                    $(".titleD").toggleClass("logoD", headerTop > 0);
+                    $(".titleNEYDURANT").toggleClass("logoNEYDURANT", headerTop >0);
                 };
                 
                 var updateButtons = function(){
@@ -78,15 +84,14 @@
                     $("#samplify-info").css({margin: imgheight+"px 0px 0px 0px " });
                 }
 
-
                 var intervalID = setInterval(function(){$(".projecthome-image").toggleClass("transparent");}, 3000);
 
                 $(window).resize(shiftProjectInfo);
                 $(window).load(shiftProjectInfo);
                 $(window).resize(updateVHVW);
-;               $(window).resize(updateNavOffset);
+;               //$(window).resize(updateNavOffset);
                 $(window).resize(updateNavScroll);
-                $(window).load(updateNavOffset);
+                //$(window).load(updateNavOffset);
 
                 $(window).scroll(updateNavScroll); //updateScroll on scroll
                 updateNavScroll(); //go ahead and updateScroll immediately
@@ -140,61 +145,60 @@
     <body>
         
         <div id="header">
-            <div id="title">
+            <center id="title">
                 <img class="titleS" src="Logo S.png"/>
                 <img class="titleI" src="Logo I.png"/>
                 <img class="titleD" src="Logo D.png"/>
                 <img class="titleNEYDURANT" src="Logo NEY DURANT.png"/>
-            </div>
+            </center>
         </div>
 
+        <div id="home" class="content">
+            <h1>Learner. <br> Hacker. <br> Dreamer. <br> Coder.</h1>
+        </div>
+        
+
         <div id="navbar-wrapper"> 
-            <div id="navbar-anchor"></div> 
             <div id="navbar"> 
-                
-                <span class="button" id="homeButton"><h2>^</h2></span>
-                <span class="button" id="aboutButton">About </span>
-                <span class="button" id="skillsetButton">Skillset </span>
-                <span class="button" id="projectsButton">Projects </span>
-                <span class="button" id="contactButton">Contact</span>
-                
+                <!--<span class="button" id="aboutButton"><p>About</p></span>
+                <span class="button" id="skillsetButton"><p>Skillset</p></span>
+                <span class="button" id="projectsButton"><p>Projects</p></span>
+                <span class="button" id="contactButton"><p>Contact</p></span>-->
             </div>
         </div>
         
-        <div id="home" class="content">
-            <h1>Developer. <br> Hacker. <br> Dreamer. <br> Coder.</h1>
-        </div>
-        
+
         <div id="about" class="content">
             <h2>About</h2>
-            <p>I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently searching for paid internships for Fall 2014 and Summer 2015. This is my portfolio website, I hope you enjoy it. </p>
+            <p>I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently searching for paid internships for Fall 2014 and Summer 2015. This is my (built from scratch) portfolio website, I hope you enjoy it. </p>
         </div>
         
         <div id="skillset" class="content">
             <h2> Skillset </h2>
             <ul id="skilllist">
-                <li><span class="skill">Java                    </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Object oriented design  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Windows                 </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">C                       </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">JQuery                  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Javascript              </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Html                    </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">CSS                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Git                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Android apps            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">ARM assembly            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Labview systems         </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Linux                   </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">C++                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Python                  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Command line            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill">Gradle                  </span><span class="skill-score"><img src="str.png"/></span></span></li>
+                <li><span class="skill"> Java                    </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Object oriented design  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Windows                 </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> C                       </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> JQuery                  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Javascript              </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Html                    </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> CSS                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Git                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Android apps            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> ARM assembly            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Labview systems         </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Linux                   </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> C++                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Python                  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Command line            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
+                <li><span class="skill"> Gradle                  </span><span class="skill-score"><img src="str.png"/></span></span></li>
             </ul>
         </div>
         
         <div id="projects" class="content">
             <h2>Projects</h2>
+            <p>These are some of the projects I've worked on over the years. Most of these are collaborative projects built in 36 hours at hackathons around the country.</p>
         </div>
 
         <div class="project">
