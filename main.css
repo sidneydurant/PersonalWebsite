@@ -240,12 +240,14 @@ p{
     font-weight: lighter;
     font-size: 10vh;
     padding-top: 18vh;
+    font-family: 'Open sans', serif;
 }
 .content > h2{
     text-align:center;
     font-weight: lighter;
     font-size: 48px;
     padding-bottom: 6vh;
+    font-family: 'Droid-serif', serif;
 }
 
 #about{
