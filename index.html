@@ -22,7 +22,7 @@
                     var $navbar=$("#navbar");
                     var windowTop = $(document).scrollTop();
                     var navbarTop = $navbar.offset({scroll:false}).top;
-                    console.log( windowTop + " " + navbarTop );
+                    //console.log( windowTop + " " + navbarTop );
                     if ( windowTop>navbarTop) {
                         $navbar.css({position:"fixed",top:"0px"});
                     } else {
@@ -35,6 +35,11 @@
                     //var navbarLeft = $(window).width() - logoLeft - $("#navbar").width();
                     //$("#navbar").css({margin: " 0px 0px 0px "+navbarLeft+"px"});
                 //};
+
+                var updateTitleOffset = function(){
+                    var paragraphLeft = $("#topParagraph").offset().left;
+                    $(".titleS").css({margin: " 0px 0px 0px "+paragraphLeft+"px"});
+                };
 
                 var updateVHVW = function(){
                     vh = $(window).height();
@@ -75,7 +80,7 @@
                     
                 };
 
-                var shiftProjectInfo = function(){
+                var shiftProjectInfo = function(){ // shift project info to line up with images
                     var imgheight = $("#selfieaware-image").height()-1;
                     $("#selfieaware-info").css({margin: imgheight+"px 0px 0px 0px " });
                     imgheight = $("#queueup-image").height()-1;
@@ -86,8 +91,11 @@
 
                 var intervalID = setInterval(function(){$(".projecthome-image").toggleClass("transparent");}, 3000);
 
+                updateTitleOffset();
                 $(window).resize(shiftProjectInfo);
                 $(window).load(shiftProjectInfo);
+                $(window).resize(updateTitleOffset);
+                $(window).load(updateTitleOffset);
                 $(window).resize(updateVHVW);
 ;               //$(window).resize(updateNavOffset);
                 $(window).resize(updateNavScroll);
@@ -145,12 +153,12 @@
     <body>
         
         <div id="header">
-            <center id="title">
+            <div id="title">
                 <img class="titleS" src="Logo S.png"/>
                 <img class="titleI" src="Logo I.png"/>
                 <img class="titleD" src="Logo D.png"/>
                 <img class="titleNEYDURANT" src="Logo NEY DURANT.png"/>
-            </center>
+            </div>
         </div>
 
         <div id="home" class="content">
@@ -170,7 +178,7 @@
 
         <div id="about" class="content">
             <h2>About</h2>
-            <p>I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently searching for paid internships for Fall 2014 and Summer 2015. This is my (built from scratch) portfolio website, I hope you enjoy it. </p>
+            <p id="topParagraph">I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently searching for paid internships for Fall 2014 and Summer 2015. This is my (built from scratch) portfolio website, I hope you enjoy it. </p>
         </div>
         
         <div id="skillset" class="content">
