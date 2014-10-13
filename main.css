@@ -1,4 +1,4 @@
-// 1200px 980px 768px 480px
+g// 1200px 980px 768px 480px
 
 html{
     font-size: 20px;
@@ -9,6 +9,7 @@ html{
     margin:0px;
     border: 0px;
     cursor: default;
+    text-rendering: optimizelegibility;
 }
 
 body{
@@ -17,7 +18,7 @@ body{
     -moz-box-sizing: border-box;
     overflow-x:hidden;
     font-family:  "Open Sans", sans-serif;
-    font-size:22px;
+    font-size:21px;
 }
 
 a{
@@ -31,10 +32,6 @@ a{
 
 .transparent{
     opacity: 0 !important;
-}
-
-.flipped{
-    transform: scale(-1) !important;
 }
 
 li{
@@ -88,6 +85,30 @@ p{
     -o-transition: opacity  .5s;
 }
 
+h1{
+    text-align:center;
+    font-weight: lighter;
+    font-size: 85px;
+    padding-top: 6vh;
+    font-family: 'Open sans', serif;
+    color: #ffffff;
+    text-shadow: rgba(27, 12, 36, .5) 1px 1px 0px, rgba(27, 12, 36, .5) -1px -1px 0px, rgba(27, 12, 36, .5) -1px 1px 0px, rgba(27, 12, 36, .5) 1px -1px 0px;
+    margin: auto;
+    opacity: .87;
+}
+
+h2{
+    text-align:center;
+    font-weight: lighter;
+    font-size: 52px;
+    padding-top: 2vh;
+    font-family: 'Open sans', serif;
+    color: #ffffff;
+    text-shadow: rgba(27, 12, 36, .5) 1px 1px 0px, rgba(27, 12, 36, .5) -1px -1px 0px, rgba(27, 12, 36, .5) -1px 1px 0px, rgba(27, 12, 36, .5) 1px -1px 0px;
+    margin: auto;
+    opacity: .87;
+}
+
 @media (min-width: 981px){
     li{
         padding: 2px 0 3px 0;
@@ -98,7 +119,14 @@ p{
 
 @media (max-width: 980px){
     p{
+        width: auto;
+        margin: 0 85px 0 85px;
+    }
+    h2{
         width:80%;
+    }
+    h1{
+
     }
     #samplifyresults-image{
         width: 40vw;
@@ -118,8 +146,6 @@ p{
 
     .project-info{
         background-color: #f8eeda;
-        padding: 5vh 0vw 5vh 0vw;
-        margin: 0;
     }
 
     .project-image{
@@ -145,19 +171,19 @@ p{
 #header {
     position:fixed;
     display:block;
-    top:0;
+    top:-83px;
     left:0;
     right:0;
-    background-color:#323232;
-    height:8vh;
+    background-color:#222222;
+    height:85px;
     z-index: 1;
     -webkit-backface-visibility: hidden;
     backface-visibility:hidden;
 }
 
 #header img{
-    height: 4vh;
-    padding:2vh 0 2vh 0;
+    height: 32px;
+    padding:26px 0 26px 0;
     margin-right: -.5vh;
     -webkit-backface-visibility: hidden;
     backface-visibility:hidden;
@@ -200,29 +226,6 @@ p{
     -ms-transform: translateY(-15vh);
 }
 
-#navbar-wrapper {
-    position:absolute;
-    background-color: #323232;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    /*cursor:pointer;*/
-    height: 8vh;
-    width: 100%;
-    top:92vh;
-}
-
-#navbar {
-    background-color: #323232;
-    color: #ffffff;
-    -webkit-backface-visibility: hidden;
-    backface-visibility:hidden;
-}
-
-#navbar p {
-    padding: 0;
-    margin: 0;
-}
-
 .button{
     font-size: 1rem;
     height:8vh;
@@ -233,44 +236,42 @@ p{
 }
 
 #home{
-    top: 8vh;
-    height: 100vh;
+    height: 62vh;
+    background-color: #1B0C24;
+    background-image: url(BokehAtlanta31.jpg);
+    transition: background .25s
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.content > h1{
-    text-align:center;
-    font-weight: lighter;
-    font-size: 10vh;
-    padding-top: 18vh;
-    font-family: 'Open sans', serif;
+.content{
+    padding: 85px 0 85px 0;
 }
-.content > h2{
+
+h3{
     text-align:center;
     font-weight: lighter;
-    font-size: 48px;
-    padding-bottom: 6vh;
-    font-family: 'Droid-serif', serif;
+    font-size: 32px;
+    padding-bottom: 52px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    margin-top: -10px; /*negative top margin to get rid of inherent spacing*/
 }
 
 #about{
-    background-color: #f8eeda;
-    padding: 10vh 0vw 13vh 0vw;
+    background-color: #f8eeda;/**/
 }
 #skillset{
     background-color: #ffffff;
-    padding: 10vh 0vw 13vh 0vw;
 }
 #projects{
     background-color: #f8eeda;
-    padding: 10vh 0vw 13vh 0vw;
-}
-#projects h2{
-    margin-bottom: 0px;
 }
 #contact{
     background-color: #323232;
     color: #ffffff;
-    padding: 10vh 0vw 10vh 0vw;
 }
 
 li span:last-child {
