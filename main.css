@@ -292,6 +292,11 @@ h3{
 }
 #contact{
     background-color: #1B0C24;
+    background-image: url(BokehNoise31.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: #ffffff;
 }
 #contact li{
@@ -324,6 +329,10 @@ li span:last-child {
     border-color: #1B0C24;
     border-style: solid;
     transition: opacity .3s, border-color .3s;
+}
+
+a:hover{
+    cursor:pointer;
 }
 
 .navButton:hover {
