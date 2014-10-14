@@ -17,12 +17,7 @@
                 
                 var updateTitleOffset = function(){
                     var paragraphLeft = $("#topParagraph").offset().left;
-                    if( $(window).width() > 450 ){
-                        $(".titleS").css({margin: " 0px 0px 0px "+paragraphLeft+"px"});
-                        $("#title").removeClass("transparent");
-                    }else{
-                        $("#title").addClass("transparent");
-                    }
+                    $(".titleS").css({margin: " 0px 0px 0px "+paragraphLeft+"px"});
                 };
 
                 var logoifyHeader = function(){
