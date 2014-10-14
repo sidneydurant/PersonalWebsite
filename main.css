@@ -267,6 +267,7 @@ h2{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding: 0px;
 }
 
 .content{
