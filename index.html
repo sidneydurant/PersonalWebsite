@@ -61,11 +61,17 @@
                 }
 
                 var updateNavbarOffset = function(){
-                    spacerWidth = $("#topParagraph").offset().left;
+                    var spacerWidth = $("#topParagraph").offset().left;
                     $("#navSpacer").css({width: spacerWidth});
                 }
 
                 var intervalID = setInterval(function(){$(".projecthome-image").toggleClass("transparent");}, 3000);
+
+                var updateHomeHeight = function(){
+                    var homeHeight = $(window).height()*.62;
+                    $("#home").css({height: homeHeight});
+                }
+                updateHomeHeight();
 
                 $(window).scroll(slideHeader);
                 $(window).resize(shiftProjectInfo);
@@ -145,7 +151,7 @@
 
         <div id="about" class="content">
             <h3>- About -</h3>
-            <p id="topParagraph">I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently seeking internships for Fall 2014 and Summer 2015. This is my (built from scratch) portfolio website, I hope you enjoy it. </p>
+            <p id="topParagraph">I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I often work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites. I'm currently seeking internships for Fall 2014 and Summer 2015. This is my (built from scratch) portfolio website, I hope you enjoy it. </p>
         </div>
         
         <div id="skillset" class="content">
@@ -204,7 +210,7 @@
             </a>
         </div>
         <div id="samplify-info" class="project-info">
-            <p> Samplify was an app built in Spring 2014. It used the Gracenote API to recognize a song over the microphone, and then scraped data from whosampled.com and use that data to identify what songs (if any) were sampled to make the one being listened to. We posted on reddit in the r/music subreddit, and ended up on the front page. The website quickly recieved over 80,000 hits. Samplify quickly reached the top 25 music-apps list in the Play Store before it had to be taken down for breaking the whosampled TOS. </p>
+            <p> Samplify was an app built in Spring 2014. It used the Gracenote API to recognize a song over the microphone, and then scraped data from whosampled.com and used that data to identify what songs (if any) were sampled to make the one being listened to. We posted on reddit in the r/music subreddit, and ended up on the front page. The website quickly recieved over 80,000 hits. Samplify quickly reached the top 25 music-apps list in the Play Store before it had to be taken down for breaking the whosampled TOS. </p>
         </div>
 
         <div id="contact" class="content">

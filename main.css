@@ -45,8 +45,8 @@ p{
     text-indent: 0px;
     width: 40rem;
     margin: auto;
-    transition: margin .3s;
-    transition: padding: .3s;
+    /*transition: margin .3s;
+    transition: padding: .3s;*/
 }
 
 #samplifyresults-image{
@@ -129,8 +129,11 @@ h2{
         width: auto;
         margin: 0 85px 0 85px;
     }
+    h1{
+        font-size: 52px;
+    }
     h2{
-        width:80%;
+        font-size: 32px;
     }
     #samplifyresults-image{
         width: 40vw;
@@ -184,7 +187,7 @@ h2{
         padding-top: 0px;
     }
     h2{
-        padding-top: 10px;
+        padding-top: -10px;
     }
 }
 
@@ -255,7 +258,8 @@ h2{
 }
 
 #home{
-    height: 62vh;
+    /*height: 62vh; /* change this to only update onLoad() by doing it in JS */
+    height: 00px;
     background-color: #1B0C24;
     background-image: url(BokehAtlanta31.jpg);
     transition: background .3s
@@ -369,11 +373,12 @@ a:hover{
         margin-top: -10px;
     }
     #navbar > p{
+        font-size: 18px;
         margin-left: 10px;
     }
 }
 @media (max-width: 320px){
-    #header{
-        left: 800px;
+    #header .navButton{
+        margin-left: 6px;
     }
 }
