@@ -12,9 +12,6 @@
         
         <script type='text/javascript'>
             
-            var vh= $(window).height();
-            var vw = $(window).width();
-        
             $(function() {
                 
                 var updateTitleOffset = function(){
@@ -22,40 +19,20 @@
                     $(".titleS").css({margin: " 0px 0px 0px "+paragraphLeft+"px"});
                 };
 
-                var updateVHVW = function(){
-                    vh = $(window).height();
-                    vw = $(window).width();
-                };
-                
                 var logoifyHeader = function(){
                     $(".titleI").toggleClass("logoI", $(window).width() < 980);
                     $(".titleD").toggleClass("logoD", $(window).width() < 980);
                     $(".titleNEYDURANT").toggleClass("logoNEYDURANT", $(window).width() < 980);
                 };
-                
+
                 var updateButtons = function(){
-                    var $top = $(window).scrollTop() + .5*$(window).height();
+                    var $top = $(window).scrollTop() + .25*$(window).height();
 
-                    $(".button").css({backgroundColor:"#323232"});
-                    $("#homeButton h3").toggleClass("flipped", false);
-
-                    if( $top >= 0 && $top < $("#about").offset({scroll:false}).top ){
-                        $("#homeButton").css({backgroundColor:"#0560d8"});
-                        $("#homeButton h3").toggleClass("flipped", true);
-                    }
-                    if( $top >= $("#about").offset({scroll:false}).top && $top < $("#skillset").offset({scroll:false}).top ){
-                        $("#aboutButton").css({backgroundColor:"#0560d8"});
-                    }
-                    if( $top >= $("#skillset").offset({scroll:false}).top && $top < $("#projects").offset({scroll:false}).top ){
-                        $("#skillsetButton").css({backgroundColor:"#0560d8"});
-                    }
-                    if( $top >= $("#projects").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 ){
-                        $("#projectsButton").css({backgroundColor:"#0560d8"});
-                    }
-                    if( $(window).scrollTop() + $(window).height() > $(document).height()-2 ){
-                        $("#contactButton").css({backgroundColor:"#0560d8"});
-                    }
-                    
+                    $(".navButton").removeClass("underlined");
+                    $("#aboutButton").toggleClass( "underlined", $top < $("#skillset").offset({scroll:false}).top);
+                    $("#skillsButton").toggleClass( "underlined", $top >= $("#skillset").offset({scroll:false}).top && $top < $("#projects").offset({scroll:false}).top);
+                    $("#projectsButton").toggleClass("underlined", $top >= $("#projects").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 );
+                    $("#contactButton").toggleClass("underlined", $(window).scrollTop() + $(window).height() > $(document).height()-2);
                 };
 
                 var shiftProjectInfo = function(){
@@ -75,7 +52,11 @@
                     }else{
                         $("#header").css({top:"-85px"}); // slide header out
                     }
-                    
+                }
+
+                var updateNavbarOffset = function(){
+                    spacerWidth = $("#topParagraph").offset().left;
+                    $("#navSpacer").css({width: spacerWidth});
                 }
 
                 var intervalID = setInterval(function(){$(".projecthome-image").toggleClass("transparent");}, 3000);
@@ -85,49 +66,49 @@
                 $(window).load(shiftProjectInfo);
                 $(window).resize(updateTitleOffset);
                 $(window).load(updateTitleOffset);
-                $(window).resize(updateVHVW);
-                
+                $(window).load(updateNavbarOffset);
+                $(window).resize(updateNavbarOffset);
                 $(window).resize(logoifyHeader);
                 logoifyHeader();
                 
                 $(window).scroll(updateButtons);
                 updateButtons();
 
-                /*$("#homeButton").click( function() {
+                $("#homeButton").click( function() {
                     if( $("#homeButton h3").hasClass("flipped") ){
                         $('html, body').animate({
-                            scrollTop: $("#about").offset({scroll:false}).top-.09*vh,
+                            scrollTop: $("#about").offset({scroll:false}).top-85,
                         }, 250);
                     }else{
                         $('html, body').animate({
-                            scrollTop: $("#home").offset({scroll:false}).top-.09*vh,
+                            scrollTop: $("#home").offset({scroll:false}).top-85,
                         }, 250);
                     }
                 });
 
                 $("#aboutButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#about").offset({scroll:false}).top-.09*vh,
+                        scrollTop: $("#about").offset({scroll:false}).top-85,
                     }, 250);
                 });
 
-                $("#skillsetButton").click( function() {
+                $("#skillsButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#skillset").offset({scroll:false}).top-.09*vh,
+                        scrollTop: $("#skillset").offset({scroll:false}).top-85,
                     }, 250);
                 });
 
                 $("#projectsButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#projects").offset({scroll:false}).top-.09*vh,
+                        scrollTop: $("#projects").offset({scroll:false}).top-85,
                     }, 250);
                 });
 
                 $("#contactButton").click( function() {
                     $('html, body').animate({
-                        scrollTop: $("#contact").offset({scroll:false}).top-.09*vh,
+                        scrollTop: $("#contact").offset({scroll:false}).top-85,
                     }, 250);
-                });*/
+                });
 
             }); 
         </script>
@@ -142,6 +123,13 @@
                 <p class="titleD">D</p>
                 <p class="titleNEYDURANT">NEY DURANT</p>
             </div>
+            <div id="navbar">
+                <span id="navSpacer"></span>
+                <p class="navButton" id="contactButton">Contact</p>
+                <p class="navButton" id="projectsButton">Projects</p>
+                <p class="navButton" id="skillsButton">Skills</p>
+                <p class="navButton" id="aboutButton">About</p>
+            </div>
         </div>
 
         <div id="home" class="content" class="home">
@@ -151,7 +139,7 @@
 
         <div id="about" class="content">
             <h3>About</h3>
-            <p id="topParagraph">I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently searching for paid internships for Fall 2014 and Summer 2015. This is my (built from scratch) portfolio website, I hope you enjoy it. </p>
+            <p id="topParagraph">I began Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm organizing HackGT, Georgia Tech's first national scale hackathon while helping raise 200,000+ dollars to run it. I also love to work on personal projects during weekends. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites (google "only coin"). I'm currently seeking internships for Fall 2014 and Summer 2015. This is my (built from scratch) portfolio website, I hope you enjoy it. </p>
         </div>
         
         <div id="skillset" class="content">
@@ -216,7 +204,7 @@
         <div id="contact" class="content">
             <h3>Contact</h3
             <ul id="contactlist">
-                <li><span>Email:</span><span>Sidney.Durant@gmail.com</span></li>
+                <li><span>Email:</span><span>sidney.durant@gmail.com</span></li>
                 <li><span>Phone:</span><span>931-636-5774</span></li>
                 <li class="contactlistlink"><span>Github:</span><span class="contactLink"><a href="http://www.github.com/sdurant12">sdurant12</a></span></li>
                 <li class="contactlistlink"><span>Twitter:</span><span class="contactLink"><a href="http://www.twitter.com/SidneyDurant">@SidneyDurant</a></li>

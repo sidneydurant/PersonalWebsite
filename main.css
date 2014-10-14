@@ -101,7 +101,7 @@ h2{
     text-align:center;
     font-weight: lighter;
     font-size: 52px;
-    padding-top: 2vh;
+    padding-top: 20px;
     font-family: 'Open sans', serif;
     color: #ffffff;
     text-shadow: rgba(27, 12, 36, .5) 1px 1px 0px, rgba(27, 12, 36, .5) -1px -1px 0px, rgba(27, 12, 36, .5) -1px 1px 0px, rgba(27, 12, 36, .5) 1px -1px 0px;
@@ -199,6 +199,12 @@ h2{
     backface-visibility:hidden;
 }
 
+@media (max-width: 450px){
+    #header{
+        left: 800px;
+    }
+}
+
 #header p{
     display: inline-block;
     color: #ffffff;
@@ -233,9 +239,9 @@ h2{
 }
 
 .logoI{
-    transform:  scaleX(2.2) rotate(90deg);
-    -webkit-transform: scaleX(2.2) rotate(90deg);
-    -ms-transform: scaleX(2.2) rotate(90deg);
+    transform: translateY(1px) scaleX(2.2) rotate(90deg) ;
+    -webkit-transform: translateY(1px) scaleX(2.2) rotate(90deg);
+    -ms-transform: translateY(1px) scaleX(2.2) rotate(90deg);
 }
 .logoD{
     transform: translateX(-11px);
@@ -247,15 +253,6 @@ h2{
     transform: translateY(-85px);
     -webkit-transform: translateY(-85px);
     -ms-transform: translateY(-85px);
-}
-
-.button{
-    font-size: 1rem;
-    height:8vh;
-    font-weight: lighter;
-    display: inline-block;
-    z-index: 3;
-    padding: 0 5px 0 5px;
 }
 
 #home{
@@ -279,6 +276,7 @@ h3{
     font-size: 32px;
     padding-bottom: 52px;
     font-family: "Open Sans", sans-serif;
+    opacity: .87;
     font-weight: 600;
     margin-top: -10px; /*negative top margin to get rid of inherent spacing*/
 }
@@ -293,8 +291,11 @@ h3{
     background-color: #f8eeda;
 }
 #contact{
-    background-color: #323232;
+    background-color: #1B0C24;
     color: #ffffff;
+}
+#contact li{
+    opacity: .87;
 }
 
 li span:last-child {
@@ -310,9 +311,47 @@ li span:last-child {
     transition: margin .3s;
     -webkit-transition: margin .3s;
     -ms-transition: margin .3s;
+    opacity: .87;
 }
 
 #skilllist li:hover .skill-score img{
     height: 16px;
     margin-left: 2px;
+}
+
+.navButton{
+    border-width: 0 0 2px 0;
+    border-color: #1B0C24;
+    border-style: solid;
+    transition: opacity .3s, border-color .3s;
+}
+
+.navButton:hover {
+    cursor: pointer;
+    opacity: .6;
+
+}
+#navSpacer{
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    float: right;
+}
+
+#navbar > p{
+    font-size: 20px;
+    margin-left: 20px;
+    float: right;
+    z-index: 2;
+    transform: translateY(-55px);
+}
+
+#aboutButton{
+    margin-left: -200px;
+}
+
+.underlined{
+    border-width: 0 0 2px 0;
+    border-color: #bcf8f3;
+    border-style: solid;
 }
