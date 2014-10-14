@@ -17,25 +17,6 @@
         
             $(function() {
                 
-                var updateNavScroll = function() {
-                    
-                    var $navbar=$("#navbar");
-                    var windowTop = $(document).scrollTop();
-                    var navbarTop = $navbar.offset({scroll:false}).top;
-                    console.log( windowTop + " " + navbarTop );
-                    if ( windowTop>navbarTop) {
-                        $navbar.css({position:"fixed",top:"0px"});
-                    } else {
-                        //$navbar.css({position:"absolute",top:navbarTop});
-                    }
-                };
-                
-                //var updateNavOffset = function(){
-                    //var logoLeft = $(".titleS").offset().left;
-                    //var navbarLeft = $(window).width() - logoLeft - $("#navbar").width();
-                    //$("#navbar").css({margin: " 0px 0px 0px "+navbarLeft+"px"});
-                //};
-
                 var updateTitleOffset = function(){
                     var paragraphLeft = $("#topParagraph").offset().left;
                     $(".titleS").css({margin: " 0px 0px 0px "+paragraphLeft+"px"});
@@ -46,13 +27,10 @@
                     vw = $(window).width();
                 };
                 
-                var updateHeader = function(){
-                    /*headerBottom = $("#header").offset({scroll:false}).top + $("#header").outerHeight(true);
-                    navbarTop = $("#navbar").offset({scroll:false}).top;*/
-                    headerTop = $("#header").offset({scroll:false}).top;
-                    $(".titleI").toggleClass("logoI", headerTop > 0);
-                    $(".titleD").toggleClass("logoD", headerTop > 0);
-                    $(".titleNEYDURANT").toggleClass("logoNEYDURANT", headerTop >0);
+                var logoifyHeader = function(){
+                    $(".titleI").toggleClass("logoI", $(window).width() < 980);
+                    $(".titleD").toggleClass("logoD", $(window).width() < 980);
+                    $(".titleNEYDURANT").toggleClass("logoNEYDURANT", $(window).width() < 980);
                 };
                 
                 var updateButtons = function(){
@@ -89,28 +67,33 @@
                     $("#samplify-info").css({margin: imgheight+"px 0px 0px 0px " });
                 }
 
+                var slideHeader = function(){
+                    var windowTop = $(document).scrollTop();
+                    var coverTitleBottom = $("#coverTitle").offset({scroll:false}).top + $("#coverTitle").height();
+                    if(  windowTop > coverTitleBottom ){
+                        $("#header").css({top:"0px"}); // slide header in
+                    }else{
+                        $("#header").css({top:"-85px"}); // slide header out
+                    }
+                    
+                }
+
                 var intervalID = setInterval(function(){$(".projecthome-image").toggleClass("transparent");}, 3000);
 
-                updateTitleOffset();
+                $(window).scroll(slideHeader);
                 $(window).resize(shiftProjectInfo);
                 $(window).load(shiftProjectInfo);
                 $(window).resize(updateTitleOffset);
                 $(window).load(updateTitleOffset);
                 $(window).resize(updateVHVW);
-;               //$(window).resize(updateNavOffset);
-                $(window).resize(updateNavScroll);
-                //$(window).load(updateNavOffset);
-
-                $(window).scroll(updateNavScroll); //updateScroll on scroll
-                updateNavScroll(); //go ahead and updateScroll immediately
                 
-                $(window).scroll(updateHeader); // update header logo/title
-                updateHeader();
+                $(window).resize(logoifyHeader);
+                logoifyHeader();
                 
                 $(window).scroll(updateButtons);
                 updateButtons();
 
-                $("#homeButton").click( function() {
+                /*$("#homeButton").click( function() {
                     if( $("#homeButton h3").hasClass("flipped") ){
                         $('html, body').animate({
                             scrollTop: $("#about").offset({scroll:false}).top-.09*vh,
@@ -144,7 +127,7 @@
                     $('html, body').animate({
                         scrollTop: $("#contact").offset({scroll:false}).top-.09*vh,
                     }, 250);
-                });
+                });*/
 
             }); 
         </script>
@@ -154,15 +137,15 @@
         
         <div id="header">
             <div id="title">
-                <img class="titleS" src="Logo S.png"/>
-                <img class="titleI" src="Logo I.png"/>
-                <img class="titleD" src="Logo D.png"/>
-                <img class="titleNEYDURANT" src="Logo NEY DURANT.png"/>
+                <p class="titleS">S</p>
+                <p class="titleI">I</p>
+                <p class="titleD">D</p>
+                <p class="titleNEYDURANT">NEY DURANT</p>
             </div>
         </div>
 
         <div id="home" class="content" class="home">
-            <h1>Sidney Durant</h1>
+            <h1 id="coverTitle">Sidney Durant</h1>
             <h2>Learner - Hacker - Dreamer</h2>
         </div>
 

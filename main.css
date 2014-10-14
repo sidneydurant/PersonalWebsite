@@ -18,16 +18,16 @@ body{
     -moz-box-sizing: border-box;
     overflow-x:hidden;
     font-family:  "Open Sans", sans-serif;
-    font-size:21px;
+    font-size:20px;
 }
 
 a{
     color: #ffffff;
     text-decoration:none;
-    transition: padding .25s;
-    -webkit-transition: padding .25s;
-    -moz-transition: padding .25s;
-    -o-transition: padding .25s;
+    transition: padding .3s;
+    -webkit-transition: padding .3s;
+    -moz-transition: padding .3s;
+    -o-transition: padding .3s;
 }
 
 .transparent{
@@ -44,6 +44,8 @@ p{
     text-indent: 0px;
     width: 40rem;
     margin: auto;
+    transition: margin .3s;
+    transition: padding: .3s;
 }
 
 #samplifyresults-image{
@@ -65,8 +67,6 @@ p{
 
 .project-info{
     background-color: #f8eeda;
-    padding: 5vh 0vw 5vh 0vw;
-    margin: 0;
 }
 
 .project-image{
@@ -109,6 +109,12 @@ h2{
     opacity: .87;
 }
 
+.project-info{
+    background-color: #f8eeda;
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+
 @media (min-width: 981px){
     li{
         padding: 2px 0 3px 0;
@@ -144,10 +150,6 @@ h2{
         padding: 10vh 15vw 0px 15vw;
     }
 
-    .project-info{
-        background-color: #f8eeda;
-    }
-
     .project-image{
         width: 70vw;
         margin-bottom: 0;
@@ -168,62 +170,83 @@ h2{
     }
 }
 
+@media (max-width: 650px){
+    body{
+        font-size: 18px;
+    }
+    p{
+        width: auto;
+        margin: 0 20px 0 20px;
+    }
+    li{
+        padding: 2px 0 3px 0;
+        margin: 0 20px 0 20px;
+    }
+}
+
 #header {
     position:fixed;
     display:block;
-    top:-83px;
+    transition: top .3s;
+    top:-85px;
     left:0;
     right:0;
-    background-color:#222222;
+    background-color:#1B0C24;
+    opacity: .9;
     height:85px;
     z-index: 1;
     -webkit-backface-visibility: hidden;
     backface-visibility:hidden;
 }
 
-#header img{
-    height: 32px;
-    padding:26px 0 26px 0;
-    margin-right: -.5vh;
+#header p{
+    display: inline-block;
+    color: #ffffff;
+    font-size: 32px;
+    margin: 20px 0px 0px -4px;
+    padding: 0px;
     -webkit-backface-visibility: hidden;
     backface-visibility:hidden;
-}
+    width: auto;
+    height: auto;
 
+}
 
 .titleI{
-    transition: transform .25s;
-    -webkit-transition: transform .25s;
-    -moz-transition: transform .25s;
-    -o-transition: transform .25s;
+    transfom: scaleX(2.2);
+    transition: transform .3s;
+    -webkit-transition: transform .3s;
+    -moz-transition: transform .3s;
+    -o-transition: transform .3s;
 }
 .titleD{
-    transition: transform .25s;
-    -webkit-transition: transform .25s;
-    -moz-transition: transform .25s;
-    -o-transition: transform .25s;
+    transition: transform .3s;
+    -webkit-transition: transform .3s;
+    -moz-transition: transform .3s;
+    -o-transition: transform .3s;
 }
 .titleNEYDURANT{
-    transition: transform .25s;
-    -webkit-transition: transform .25s;
-    -moz-transition: transform .25s;
-    -o-transition: transform .25s;
+    transition: transform .3s;
+    -webkit-transition: transform .3s;
+    -moz-transition: transform .3s;
+    -o-transition: transform .3s;
 }
 
 .logoI{
-    transform:  scaleX(2.2)  translateX(-.2vh) rotate(90deg);
-    -webkit-transform: scaleX(2.2) translateX(-.2vh) rotate(90deg);
-    -ms-transform: scaleX(2.2) translateX(-.2vh) rotate(90deg);
+    transform:  scaleX(2.2) rotate(90deg);
+    -webkit-transform: scaleX(2.2) rotate(90deg);
+    -ms-transform: scaleX(2.2) rotate(90deg);
 }
 .logoD{
-    transform: translateX(-1.6vh);
-    -webkit-transform: translateX(-1.6vh);
-    -ms-transform: translateX(-1.6vh);
+    transform: translateX(-11px);
+    -webkit-transform: translateX(-11px);
+    -ms-transform: translateX(-11px);
 }
 
 .logoNEYDURANT{
-    transform: translateY(-15vh);
-    -webkit-transform: translateY(-15vh);
-    -ms-transform: translateY(-15vh);
+    transform: translateY(-85px);
+    -webkit-transform: translateY(-85px);
+    -ms-transform: translateY(-85px);
 }
 
 .button{
@@ -239,7 +262,7 @@ h2{
     height: 62vh;
     background-color: #1B0C24;
     background-image: url(BokehAtlanta31.jpg);
-    transition: background .25s
+    transition: background .3s
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -284,15 +307,12 @@ li span:last-child {
 
 .skill-score img{
     height: 16px;
-    transition: margin .25s;
-    -webkit-transition: margin .25s;
-    -ms-transition: margin .25s;
+    transition: margin .3s;
+    -webkit-transition: margin .3s;
+    -ms-transition: margin .3s;
 }
 
 #skilllist li:hover .skill-score img{
     height: 16px;
     margin-left: 2px;
 }
-
-
-
