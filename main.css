@@ -116,6 +116,10 @@ h2{
     padding-bottom: 85px;
 }
 
+.content{
+    padding: 85px 0 85px 0;
+}
+
 @media (min-width: 981px){
     li{
         padding: 2px 0 3px 0;
@@ -174,6 +178,13 @@ h2{
 @media (max-width: 650px){
     body{
         font-size: 18px;
+    }
+    .content{
+        padding: 52px 0 52px 0;
+    }
+    .project-info{
+        padding-top: 52px;
+        padding-bottom: 52px;
     }
     p{
         width: auto;
@@ -265,10 +276,6 @@ h2{
     -o-background-size: cover;
     background-size: cover;
     padding: 0px;
-}
-
-.content{
-    padding: 85px 0 85px 0;
 }
 
 h3{
@@ -370,7 +377,7 @@ a:hover{
 
 @media (max-width: 450px){
     h1{
-        padding-top: 32px;
+        padding-top: 10vh;
     }
     #navbar > p{
         font-size: 18px;
@@ -388,5 +395,11 @@ a:hover{
 @media (max-width: 320px){
     #header .navButton{
         margin-left: 6px;
+    }
+}
+
+@media (max-height: 500px){
+    h2{
+        opacity: 0;
     }
 }
