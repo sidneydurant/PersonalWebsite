@@ -13,9 +13,9 @@ html{
 }
 
 body{
-    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    box-sizing: border-box;
     overflow-x:hidden;
     font-family:  "Open Sans", sans-serif;
     font-size:20px;
@@ -24,10 +24,10 @@ body{
 a{
     color: #ffffff;
     text-decoration:none;
-    transition: padding .3s;
     -webkit-transition: padding .3s;
     -moz-transition: padding .3s;
     -o-transition: padding .3s;
+    transition: padding .3s;
 }
 
 .transparent{
@@ -38,7 +38,6 @@ li{
     padding-left:10px;
     padding-right:10px;
     list-style-type: none;
-    transition: margin .3s;
 }
 
 p{
@@ -80,10 +79,11 @@ p{
     width: 50vw;
     margin:auto;
     position:absolute;
-    transition: opacity .5s;
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
     -o-transition: opacity  .5s;
+    transition: opacity .5s;
 }
 
 h1{
@@ -164,10 +164,11 @@ h2{
     .projecthome-image{
         width: 70vw;
         position:absolute;
-        transition: opacity .5s;
         -webkit-transition: opacity .5s;
         -moz-transition: opacity .5s;
+        -ms-transition: opacity .5s;
         -o-transition: opacity  .5s;
+        transition: opacity .5s;
     }
     li{
         /*padding: 2px 10vw 3px 10vw;*/
@@ -202,6 +203,10 @@ h2{
 #header {
     position:fixed;
     display:block;
+    -webkit-transition: top .3s;
+    -moz-transition: top .3s;
+    -ms-transition: top .3s;
+    -o-transition: top .3s;
     transition: top .3s;
     top:-85px;
     left:0;
@@ -229,40 +234,49 @@ h2{
 }
 
 .titleI{
-    transfom: scaleX(2.2);
-    transition: transform .3s;
+    /*transfom: scaleX(2.2);*/
     -webkit-transition: transform .3s;
     -moz-transition: transform .3s;
+    -ms-transition: transform .3s;
     -o-transition: transform .3s;
+    transition: transform .3s;
 }
 .titleD{
-    transition: transform .3s;
     -webkit-transition: transform .3s;
     -moz-transition: transform .3s;
+    -ms-transition: transform .3s;
     -o-transition: transform .3s;
+    transition: transform .3s;
 }
 .titleNEYDURANT{
-    transition: transform .3s;
     -webkit-transition: transform .3s;
     -moz-transition: transform .3s;
+    -ms-transition: transform .3s;
     -o-transition: transform .3s;
+    transition: transform .3s;
 }
 
 .logoI{
-    transform: translateY(1px) scaleX(2.2) rotate(90deg) ;
     -webkit-transform: translateY(1px) scaleX(2.2) rotate(90deg);
+    -moz-transform: translateY(1px) scaleX(2.2) rotate(90deg);
     -ms-transform: translateY(1px) scaleX(2.2) rotate(90deg);
+    -o-transform: translateY(1px) scaleX(2.2) rotate(90deg);
+    transform: translateY(1px) scaleX(2.2) rotate(90deg) ;
 }
 .logoD{
-    transform: translateX(-11px);
     -webkit-transform: translateX(-11px);
+    -moz-transform: translateX(-11px);
     -ms-transform: translateX(-11px);
+    -o-transform: translateX(-11px);
+    transform: translateX(-11px);
 }
 
 .logoNEYDURANT{
-    transform: translateY(-85px);
     -webkit-transform: translateY(-85px);
+    -moz-transform: translateY(-85px);
     -ms-transform: translateY(-85px);
+    -o-transform: translateY(-85px);
+    transform: translateY(-85px);
 }
 
 #home{
@@ -270,9 +284,14 @@ h2{
     height: 00px;
     background-color: #1B0C24;
     background-image: url(BokehAtlanta31.jpg);
+    -webkit-transition: background .3s;
+    -moz-transition: background .3s;
+    -ms-transition: background .3s;
+    -o-transition: background .3s;
     transition: background .3s
     -webkit-background-size: cover;
     -moz-background-size: cover;
+    -ms-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     padding: 0px;
@@ -303,6 +322,7 @@ h3{
     background-image: url(BokehNoise31.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
+    -ms-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     color: #ffffff;
@@ -321,9 +341,11 @@ li span:last-child {
 
 .skill-score img{
     height: 16px;
-    transition: margin .3s;
     -webkit-transition: margin .3s;
+    -moz-transition: margin .3s;
     -ms-transition: margin .3s;
+    -o-transition: margin .3s;
+    transition: margin .3s;
     opacity: .87;
 }
 
@@ -336,6 +358,10 @@ li span:last-child {
     border-width: 0 0 2px 0;
     border-color: #1B0C24;
     border-style: solid;
+    -webkit-transition: opacity .3s, border-color .3s;
+    -moz-transition: opacity .3s, border-color .3s;
+    -ms-transition: opacity .3s, border-color .3s;
+    -o-transition: opacity .3s, border-color .3s;
     transition: opacity .3s, border-color .3s;
 }
 
@@ -362,6 +388,10 @@ a:hover{
     float: right;
     padding-top: 30px;
     z-index: 2;
+    -webkit-transform: translateY(-84px);
+    -moz-transform: translateY(-84px);
+    -ms-transform: translateY(-84px);
+    -o-transform: translateY(-84px);
     transform: translateY(-84px);
 }
 
