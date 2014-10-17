@@ -75,6 +75,13 @@ p{
     position:absolute;
 }
 
+.projecthome-image:hover{
+    cursor:pointer;
+}
+.projecthome:hover{
+    cursor:pointer;
+}
+
 .projecthome-image{
     width: 50vw;
     margin:auto;
