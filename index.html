@@ -1,128 +1,116 @@
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700italic,400italic,300,900,700,900italic,300italic' rel='stylesheet' type='text/css'>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Sidney Durant</title>
-        <meta name="description" content="Sidney Durant's portfolio website.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="main.css">
-        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <title>Sidney Durant</title>
+    <meta name='description' content="Sidney Durant's portfolio website.">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='main.css'>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+
+    <script type='text/javascript'>
+
+    $(function() {
+
+        var updateTitleOffset = function(){
+            var paragraphLeft = $('#topParagraph').offset().left;
+            $('.titleS').css({margin: ' 0px 0px 0px '+paragraphLeft+'px'});
+        };
+
+        var logoifyHeader = function(){
+            $('.titleI').toggleClass('logoI', $(window).width() < 980);
+            $('.titleD').toggleClass('logoD', $(window).width() < 980);
+            $('.titleNEYDURANT').toggleClass('logoNEYDURANT', $(window).width() < 980);
+        };
+
+        var updateButtons = function(){
+            var $top = $('.parallaxFront').scrollTop()+85;
+            $('.navButton').removeClass('underlined');
+            $('#aboutButton').toggleClass( 'underlined', $top < $('#skillset').offset().top);
+            $('#skillsButton').toggleClass( 'underlined', $top >= $('#skillset').offset().top && $top < $('#projects').offset().top);
+            $('#projectsButton').toggleClass('underlined', $top >= $('#projects').offset().top && $top < $('#contact').offset().top);
+            $('#contactButton').toggleClass('underlined', $top >= $('#contact').offset().top );
+        };
+
+        $('#aboutButton').click( function() {
+            $('.parallax').animate({
+                scrollTop: $('.parallax').scrollTop()+$('#about').offset().top -83,
+            }, 250);
+        });
+
+        $('#skillsButton').click( function() {
+            $('.parallax').animate({
+                scrollTop: $('.parallax').scrollTop()+$('#skillset').offset().top -83,
+            }, 250);
+        });
+
+        $('#projectsButton').click( function() {
+            $('.parallax').animate({
+                scrollTop: $('.parallax').scrollTop()+$('#projects').offset().top -83,
+            }, 250);
+        });
+
+        $('#contactButton').click( function() {
+            $('.parallax').animate({
+                scrollTop: $('.parallax').scrollTop()+$('#contact').offset().top -83,
+            }, 250);
+        });
+
+        var shiftProjectInfo = function(){
+            var imgheight = $('#selfieaware-image').height()-1;
+            $('#selfieaware-info').css({margin: imgheight+'px 0px 0px 0px ' });
+            imgheight = $('#queueup-image').height()-1;
+            $('#queueup-info').css({margin: imgheight+'px 0px 0px 0px ' });
+            imgheight = $('#samplify-image').height()-1;
+            $('#samplify-info').css({margin: imgheight+'px 0px 0px 0px ' });
+        }
+
+        var slideHeader = function(){
+            var coverBottom = $('#coverSpacer').offset({scroll:false}).top + $('#coverSpacer').height()-85;
+            if( coverBottom < 0 ){
+                $('#header').css({top:'0px'}); // slide header in
+            }else{
+                $('#header').css({top:'-85px'}); // slide header out
+            }
+            updateNavbarOffset();
+            updateTitleOffset();
+        }
+
+        var updateNavbarOffset = function(){
+            var spacerWidth = $('#topParagraph').offset().left;
+            $('#navSpacer').css({width: spacerWidth});
+        }
+
+        var intervalID = setInterval(function(){$('.projecthome-image').toggleClass('transparent');}, 3000);
+
+        var updateHomeHeight = function(){
+            var homeHeight = $(window).height()*.62;
+            $('#home').css({height: homeHeight});
+        }
+        updateHomeHeight();
+
+        $('.parallax').scroll(slideHeader);
+        //console.log('hi');
+        $(window).resize(slideHeader);
+        $(window).resize(shiftProjectInfo);
+        $(window).load(shiftProjectInfo);
+        $(window).resize(updateTitleOffset);
+        $(window).load(updateTitleOffset);
+        $(window).load(updateNavbarOffset);
+        $(window).resize(updateNavbarOffset);
+        $(window).resize(logoifyHeader);
+        logoifyHeader();
         
-        <script type='text/javascript'>
-            
-            $(function() {
-                
-                var updateTitleOffset = function(){
-                    var paragraphLeft = $("#topParagraph").offset().left;
-                    $(".titleS").css({margin: " 0px 0px 0px "+paragraphLeft+"px"});
-                };
+        $('.parallax').scroll(updateButtons);
+        updateButtons();
 
-                var logoifyHeader = function(){
-                    $(".titleI").toggleClass("logoI", $(window).width() < 980);
-                    $(".titleD").toggleClass("logoD", $(window).width() < 980);
-                    $(".titleNEYDURANT").toggleClass("logoNEYDURANT", $(window).width() < 980);
-                };
 
-                var updateButtons = function(){
-                    var $top = $(window).scrollTop() + .25*$(window).height();
-
-                    $(".navButton").removeClass("underlined");
-                    $("#aboutButton").toggleClass( "underlined", $top < $("#skillset").offset({scroll:false}).top);
-                    $("#skillsButton").toggleClass( "underlined", $top >= $("#skillset").offset({scroll:false}).top && $top < $("#projects").offset({scroll:false}).top);
-                    $("#projectsButton").toggleClass("underlined", $top >= $("#projects").offset({scroll:false}).top && $(window).scrollTop() + $(window).height() < $(document).height()-2 );
-                    $("#contactButton").toggleClass("underlined", $(window).scrollTop() + $(window).height() > $(document).height()-2);
-                };
-
-                var shiftProjectInfo = function(){
-                    var imgheight = $("#selfieaware-image").height()-1;
-                    $("#selfieaware-info").css({margin: imgheight+"px 0px 0px 0px " });
-                    imgheight = $("#queueup-image").height()-1;
-                    $("#queueup-info").css({margin: imgheight+"px 0px 0px 0px " });
-                    imgheight = $("#samplify-image").height()-1;
-                    $("#samplify-info").css({margin: imgheight+"px 0px 0px 0px " });
-                }
-
-                var slideHeader = function(){
-                    var windowTop = $(document).scrollTop();
-                    var coverTitleBottom = $("#coverTitle").offset({scroll:false}).top + $("#coverTitle").height();
-                    if(  windowTop > coverTitleBottom ){
-                        $("#header").css({top:"0px"}); // slide header in
-                    }else{
-                        $("#header").css({top:"-85px"}); // slide header out
-                    }
-                    updateNavbarOffset();
-                    updateTitleOffset();
-                }
-
-                var updateNavbarOffset = function(){
-                    var spacerWidth = $("#topParagraph").offset().left;
-                    $("#navSpacer").css({width: spacerWidth});
-                }
-
-                var intervalID = setInterval(function(){$(".projecthome-image").toggleClass("transparent");}, 3000);
-
-                var updateHomeHeight = function(){
-                    var homeHeight = $(window).height()*.62;
-                    $("#home").css({height: homeHeight});
-                }
-                updateHomeHeight();
-
-                $(window).scroll(slideHeader);
-                $(window).resize(shiftProjectInfo);
-                $(window).load(shiftProjectInfo);
-                $(window).resize(updateTitleOffset);
-                $(window).load(updateTitleOffset);
-                $(window).load(updateNavbarOffset);
-                $(window).resize(updateNavbarOffset);
-                $(window).resize(logoifyHeader);
-                logoifyHeader();
-                
-                $(window).scroll(updateButtons);
-                updateButtons();
-
-                $("#homeButton").click( function() {
-                    if( $("#homeButton h3").hasClass("flipped") ){
-                        $('html, body').animate({
-                            scrollTop: $("#about").offset({scroll:false}).top-85,
-                        }, 250);
-                    }else{
-                        $('html, body').animate({
-                            scrollTop: $("#home").offset({scroll:false}).top-85,
-                        }, 250);
-                    }
-                });
-
-                $("#aboutButton").click( function() {
-                    $('html, body').animate({
-                        scrollTop: $("#about").offset({scroll:false}).top-85,
-                    }, 250);
-                });
-
-                $("#skillsButton").click( function() {
-                    $('html, body').animate({
-                        scrollTop: $("#skillset").offset({scroll:false}).top-85,
-                    }, 250);
-                });
-
-                $("#projectsButton").click( function() {
-                    $('html, body').animate({
-                        scrollTop: $("#projects").offset({scroll:false}).top-85,
-                    }, 250);
-                });
-
-                $("#contactButton").click( function() {
-                    $('html, body').animate({
-                        scrollTop: $("#contact").offset({scroll:false}).top-85,
-                    }, 250);
-                });
-
-            }); 
-        </script>
-        <script>
+    }); 
+</script>
+        <!--<script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -131,106 +119,119 @@
           ga('create', 'UA-55773701-1', 'auto');
           ga('send', 'pageview');
 
-        </script>
-    </head>
+      </script>-->
+  </head>
 
-    <body>
-        
-        <div id="header">
-            <div id="title">
-                <p class="titleS">S</p>
-                <p class="titleI">I</p>
-                <p class="titleD">D</p>
-                <p class="titleNEYDURANT">NEY DURANT</p>
+  <body>
+
+    <div id='header'>
+        <div id='title'>
+            <p class='titleS'>S</p>
+            <p class='titleI'>I</p>
+            <p class='titleD'>D</p>
+            <p class='titleNEYDURANT'>NEY DURANT</p>
+        </div>
+        <div id='navbar'>
+            <span id='navSpacer'></span>
+            <p class='navButton' id='contactButton'>Contact</p>
+            <p class='navButton' id='projectsButton'>Projects</p>
+            <p class='navButton' id='skillsButton'>Skills</p>
+            <p class='navButton' id='aboutButton'>About</p>
+        </div>
+    </div>
+
+    <div class='parallax'>
+
+        <div class='parallax__layer parallax__layer--back '>
+            <div id='cover'>
+                <h1>Sidney Durant</h1>
+                <!--<div><h2>Learner - Hacker -Dreamer</h2></div>-->
             </div>
-            <div id="navbar">
-                <span id="navSpacer"></span>
-                <p class="navButton" id="contactButton">Contact</p>
-                <p class="navButton" id="projectsButton">Projects</p>
-                <p class="navButton" id="skillsButton">Skills</p>
-                <p class="navButton" id="aboutButton">About</p>
-            </div>
         </div>
 
-        <div id="home" class="content" class="home">
-            <h1 id="coverTitle">Sidney Durant</h1>
-            <h2>Learner - Hacker - Dreamer</h2>
+        <div id='coverSpacer'>
         </div>
 
-        <div id="about" class="content">
-            <h3>About</h3>
-            <p id="topParagraph">I began studying computer science at Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm the director of operations at HackGT, Georgia Tech's national scale hackathon, and last year helped raise 200,000+ dollars to run it. I often work on personal projects during weekends to learn new skills. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites. I'm currently seeking a software engineering internship for the summer of 2015. This is my (built from scratch) portfolio website, I hope you enjoy it! </p>
+
+
+
+        <div id='parallaxFront'>
+        <div id='about' class='content'>
+            <h3>- About -</h3>
+            <p id='topParagraph'>I began studying computer science at Georgia Tech in Fall 2013. Since then I've grown to be a hackathon fanatic, a startup enthusiast, and an avid learner. I'm the director of operations at HackGT, Georgia Tech's national scale hackathon, and last year helped raise 200,000+ dollars to run it. I often work on personal projects during weekends to learn new skills. I love many aspects of graphics, ranging from the latest 3d rendering techniques (Indirect Illumination using Voxel Cone Tracing, anyone?), to beautifully designed responsive websites. I'm currently seeking a software engineering internship for the summer of 2015. This is my (built from scratch) portfolio website, I hope you enjoy it! </p>
         </div>
-        
-        <div id="skillset" class="content">
-            <h3>Skills</h3>
-            <ul id="skilllist">
-                <li><span class="skill"> Java                    </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Object oriented design  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Windows                 </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> C                       </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> JQuery                  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Javascript              </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Html                    </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> CSS                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Git                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Android apps            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> ARM assembly            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Labview systems         </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Linux                   </span><span class="skill-score"><img src="str.png"/><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> C++                     </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Python                  </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Command line            </span><span class="skill-score"><img src="str.png"/><img src="str.png"/></span></li>
-                <li><span class="skill"> Gradle                  </span><span class="skill-score"><img src="str.png"/></span></span></li>
+
+        <div id='skillset' class='content'>
+            <h3>- Skills -</h3>
+            <ul id='skilllist'>
+                <li><span class='skill'> Java                    </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Object oriented design  </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Windows                 </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> C                       </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> JQuery                  </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Javascript              </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Html                    </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> CSS                     </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Git                     </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Android apps            </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> ARM assembly            </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Labview systems         </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Linux                   </span><span class='skill-score'><img src='str.png'/><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> C++                     </span><span class='skill-score'><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Python                  </span><span class='skill-score'><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Command line            </span><span class='skill-score'><img src='str.png'/><img src='str.png'/></span></li>
+                <li><span class='skill'> Gradle                  </span><span class='skill-score'><img src='str.png'/></span></span></li>
             </ul>
         </div>
-        
-        <div id="projects" class="content">
-            <h3>Projects</h3>
+
+        <div id='projects' class='content'>
+            <h3>- Projects -</h3>
             <p>This is a sample of the projects I've worked on over the years. Many more of my projects can be seen on my github. Most of the projects here are collaborative projects built in 36 hours at hackathons around the country.</p>
         </div>
 
-        <div class="project">
-            <a href="http://selfieaware.com/" target="_blank">
-            <img class="project-image" src="SelfieAwareResultsWithBrowser.jpeg"/>
-            <img id="selfieaware-image" class="projecthome-image" src="SelfieAwareHomeWithBrowser.jpeg"/>
+        <div class='project'>
+            <a href='http://selfieaware.com/' target='_blank'>
+                <img class='project-image' src='SelfieAwareResultsWithBrowser.jpeg'/>
+                <img id='selfieaware-image' class='projecthome-image' src='SelfieAwareHomeWithBrowser.jpeg'/>
             </a>
         </div>
-        <div id="selfieaware-info" class="project-info" class="content">
+        <div id='selfieaware-info' class='project-info' class='content'>
             <p> SelfieAware is artificial intelligence put to good use. It was built at LAHacks by me and three friends. We implemented a facial recognition API, and used it to give people selfiness scores. To use SelfieAware, all you have to do is login through Instagram, and then SelfieAware will automatically browse your recent Instagram pictures and give you a selfiness score based on the ratio of pictures of yourself vs pictures of nature/others/etc.</p>
         </div>
 
 
-        <div class="project">
-            <a href="http://queueup.herokuapp.com/" target="_blank">
-            <img class="project-image" src="QueueupResultsWithBrowser.jpeg"/>
-            <img id="queueup-image" class="projecthome-image" src="QueueupHomeWithBrowser.jpeg"/>
+        <div class='project'>
+            <a href='http://queueup.herokuapp.com/' target='_blank'>
+                <img class='project-image' src='QueueupResultsWithBrowser.jpeg'/>
+                <img id='queueup-image' class='projecthome-image' src='QueueupHomeWithBrowser.jpeg'/>
             </a>
         </div>
-        <div id="queueup-info" class="project-info">
-            <p> Queueup [q-up] is a party playlist maker. Built at MHacks Spring 2014 in 36 hours by me and two friends, Queueup lets you add songs to a central Spotify playlist. If you throw a party, all you have to do is setup a new playlist in the Spotify client app, and set up a playlist code. Partygoers can then simply enter the playlist code on the website to add music and upvote it. Go to the website and type in the code "MHACKS" to see the playlist we made at MHacks. Add music to it and it will show up in my Spotify!</p>
+        <div id='queueup-info' class='project-info'>
+            <p> Queueup [q-up] is a party playlist maker. Built at MHacks Spring 2014 in 36 hours by me and two friends, Queueup lets you add songs to a central Spotify playlist. If you throw a party, all you have to do is setup a new playlist in the Spotify client app, and set up a playlist code. Partygoers can then simply enter the playlist code on the website to add music and upvote it. Go to the website and type in the code 'MHACKS' to see the playlist we made at MHacks. Add music to it and it will show up in my Spotify!</p>
         </div>
 
-        <div class="project">
-            <a href="http://samplifymobile.com" target="_blank">
-            <img id="samplifyresults-image" class="project-image" src="SamplifyResultsWithPhone.jpeg"/>
-            <img id="samplify-image" class="projecthome-image" src="SamplifyHomeWithPhone.jpeg"/>
+        <div class='project'>
+            <a href='http://samplifymobile.com' target='_blank'>
+                <img id='samplifyresults-image' class='project-image' src='SamplifyResultsWithPhone.jpeg'/>
+                <img id='samplify-image' class='projecthome-image' src='SamplifyHomeWithPhone.jpeg'/>
             </a>
         </div>
-        <div id="samplify-info" class="project-info">
+        <div id='samplify-info' class='project-info'>
             <p> Samplify was an app built in Spring 2014. It used the Gracenote API to recognize a song over the microphone, and then scraped data from whosampled.com and used that data to identify what songs (if any) were sampled to make the one being listened to. We posted on reddit in the r/music subreddit, and ended up on the front page. The website quickly recieved over 80,000 hits. Samplify quickly reached the top 25 music-apps list in the Play Store before it had to be taken down for breaking the whosampled TOS. </p>
         </div>
 
-        <div id="contact" class="content">
-            <h3>Contact</h3
-            <ul id="contactlist">
+        <div id='contact' class='content'>
+            <h3>- Contact -</h3>
+            <ul id='contactlist'>
                 <li><span>Email:</span><span>sidney.durant@gmail.com</span></li>
                 <li><span>Phone:</span><span>931-636-5774</span></li>
-                <li class="contactlistlink"><span>Github:</span><span class="contactLink"><a href="http://www.github.com/sdurant12">sdurant12</a></span></li>
-                <!--<li class="contactlistlink"><span>Twitter:</span><span class="contactLink"><a href="http://www.twitter.com/SidneyDurant">@SidneyDurant</a></li>-->
-                <li class="contactlistlink"><span>Resume:</span><span class="contactLink"><a href="/Resume.pdf">PDF</a></li>
+                <li class='contactlistlink'><span>Github:</span><span class='contactLink'><a href='http://www.github.com/sdurant12'>sdurant12</a></span></li>
+                <!--<li class='contactlistlink'><span>Twitter:</span><span class='contactLink'><a href='http://www.twitter.com/SidneyDurant'>@SidneyDurant</a></li>-->
+                <li class='contactlistlink'><span>Resume:</span><span class='contactLink'><a href='/resume.pdf'>PDF</a></li>
             </ul>
         </div>
+    </div>
+    </div>
+</body>
 
-    </body>
 </html>
