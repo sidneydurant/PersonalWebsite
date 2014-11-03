@@ -441,23 +441,24 @@ a:hover{
   overflow-y: auto;
   visibility: visible;
 }
-.parallax__layer {
+
+.parallaxLayer {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left:   0;
 }
-.parallax__layer--base {
+.parallaxLayerBase {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
-.parallax__layer--back {
+.parallaxLayerBack {
   -webkit-transform: translateZ(-1px) scale(2);
   transform: translateZ(-1px) scale(2);
 }
 
-#parallaxFront{
+#parallaxLayerFront{
     z-index:1;
     position:relative;
 }
