@@ -69,11 +69,13 @@
         }
 
         var slideHeader = function(){
-            var coverBottom = $('#coverSpacer').offset({scroll:false}).top + $('#coverSpacer').height()-85;
+            var coverBottom = $('#coverSpacer').offset({scroll:false}).top + $('#coverSpacer').height()-150; // used to be -85
             if( coverBottom < 0 ){
                 $('#header').css({top:'0px'}); // slide header in
+                $('h1').addClass('transparent');
             }else{
                 $('#header').css({top:'-85px'}); // slide header out
+                $('h1').removeClass('transparent');
             }
             updateNavbarOffset();
             updateTitleOffset();

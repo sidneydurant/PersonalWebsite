@@ -101,7 +101,8 @@ h1{
     text-shadow: rgba(27, 12, 36, .5) 1px 1px 0px, rgba(27, 12, 36, .5) -1px -1px 0px, rgba(27, 12, 36, .5) -1px 1px 0px, rgba(27, 12, 36, .5) 1px -1px 0px;
     opacity: .87;
     text-align: center;
-    padding-top: calc(31vh - 60px);
+    padding-top: calc(31vh - 58px);
+    transition: opacity .25s;
 }
 
 h2{
