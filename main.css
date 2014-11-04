@@ -168,6 +168,7 @@ li{
         transition: opacity .5s;
     }
     li{
+        width: auto;
         margin: 0 85px 0 85px ;
     }
 }
@@ -297,7 +298,7 @@ li{
 }
 
 #about{
-    background-color: #f8eeda;/**/
+    background-color: #f8eeda;
 }
 #skillset{
     background-color: #ffffff;
@@ -306,8 +307,7 @@ li{
     background-color: #f8eeda;
 }
 #contact{
-    background-color: #1B0C24;
-    background-image: url(BokehNoise31.jpg);
+    background-color: #2c1a30;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
