@@ -96,12 +96,12 @@ p{
 h1{
     font-weight: lighter;
     font-size: 85px;
-    font-family: 'Open sans', serif;
+    font-family: 'Raleway', serif;
     color: #ffffff;
     text-shadow: rgba(27, 12, 36, .5) 1px 1px 0px, rgba(27, 12, 36, .5) -1px -1px 0px, rgba(27, 12, 36, .5) -1px 1px 0px, rgba(27, 12, 36, .5) 1px -1px 0px;
     opacity: .87;
     text-align: center;
-    padding-top: calc(31vh - 70px);
+    padding-top: calc(31vh - 60px);
 }
 
 h2{
@@ -109,7 +109,7 @@ h2{
     font-weight: lighter;
     font-size: 52px;
     padding-top: 20px;
-    font-family: 'Open sans', serif;
+    font-family: 'Open Sans', serif;
     color: #ffffff;
     text-shadow: rgba(27, 12, 36, .5) 1px 1px 0px, rgba(27, 12, 36, .5) -1px -1px 0px, rgba(27, 12, 36, .5) -1px 1px 0px, rgba(27, 12, 36, .5) 1px -1px 0px;
     margin: auto;
@@ -192,7 +192,7 @@ h2{
     }
     h1{
         font-size: 52px;
-        padding-top: calc(31vh - 39px);
+        padding-top: calc(31vh - 34px);
     }
     p{
         width: auto;
