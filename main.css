@@ -1,8 +1,3 @@
-g// 1200px 980px 768px 480px
-
-html{
-    font-size: 20px;
-}
 
 *{
     padding:0px;
@@ -18,7 +13,7 @@ body{
     box-sizing: border-box;
     overflow-x:hidden;
     font-family:  "Open Sans", sans-serif;
-    font-size:20px;
+    font-size:24px;
 }
 
 a{
@@ -42,10 +37,18 @@ li{
 
 p{
     text-indent: 0px;
-    width: 40rem;
+    width: 45rem;
     margin: auto;
-    /*transition: margin .3s;
-    transition: padding: .3s;*/
+}
+
+h3{
+    font-family: "Raleway", sans-serif;
+    font-weight: 100;
+    font-size: 54px;
+    padding-bottom: 52px;
+    margin-top: -10px; /*negative top margin to get rid of inherent spacing*/
+    width: 45rem;
+    margin: auto;
 }
 
 #samplifyresults-image{
@@ -105,18 +108,6 @@ h1{
     transition: opacity .25s;
 }
 
-h2{
-    text-align:center;
-    font-weight: lighter;
-    font-size: 52px;
-    padding-top: 20px;
-    font-family: 'Open Sans', serif;
-    color: #ffffff;
-    text-shadow: rgba(27, 12, 36, .5) 1px 1px 0px, rgba(27, 12, 36, .5) -1px -1px 0px, rgba(27, 12, 36, .5) -1px 1px 0px, rgba(27, 12, 36, .5) 1px -1px 0px;
-    margin: auto;
-    opacity: .87;
-}
-
 .project-info{
     background-color: #f8eeda;
     padding-top: 85px;
@@ -127,21 +118,23 @@ h2{
     padding: 85px 0 85px 0;
 }
 
-@media (min-width: 981px){
-    li{
-        padding: 2px 0 3px 0;
-        width: 40rem;
-        margin:auto;
-    }
+li{
+    padding: 2px 0 3px 0;
+    width: 45rem;
+    margin:auto;
 }
 
 @media (max-width: 980px){
+    body{
+        font-size: 22px;
+    }
     p{
         width: auto;
         margin: 0 85px 0 85px;
     }
-    h2{
-        font-size: 32px;
+    h3{
+        width: auto;
+        margin: 0 85px 0 85px;
     }
     #samplifyresults-image{
         width: 40vw;
@@ -175,7 +168,6 @@ h2{
         transition: opacity .5s;
     }
     li{
-        /*padding: 2px 10vw 3px 10vw;*/
         margin: 0 85px 0 85px ;
     }
 }
@@ -196,6 +188,10 @@ h2{
         padding-top: calc(31vh - 34px);
     }
     p{
+        width: auto;
+        margin: 0 20px 0 20px;
+    }
+    h3{
         width: auto;
         margin: 0 20px 0 20px;
     }
@@ -286,7 +282,7 @@ h2{
 
 #cover{
     background-color: #1B0C24;
-    background-image: url(BokehAtlanta31.jpg);
+    background-image: url(BokehAtlanta.png);
     height: 62vh;
     width: 100vw;
     -webkit-background-size: cover;
@@ -298,18 +294,6 @@ h2{
 }
 #coverSpacer{
     height:62vh;
-}
-
-h3{
-    text-align:center;
-    font-weight: lighter;
-    font-size: 32px;
-    padding-bottom: 52px;
-    font-family: "Open Sans", sans-serif;
-    opacity: .87;
-    font-weight: 600;
-    margin-top: -10px; /*negative top margin to get rid of inherent spacing*/
-
 }
 
 #about{
@@ -418,6 +402,10 @@ a:hover{
         width: auto;
         margin: 0 10px 0 10px;
     }
+    h3{
+        width: auto;
+        margin: 0 10px 0 10px;
+    }
     li{
         padding: 2px 0 3px 0;
         margin: 0 10px 0 10px;
@@ -426,12 +414,6 @@ a:hover{
 @media (max-width: 320px){
     #header .navButton{
         margin-left: 6px;
-    }
-}
-
-@media (max-height: 500px){
-    h2{
-        opacity: 0;
     }
 }
 
